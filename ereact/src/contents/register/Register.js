@@ -24,7 +24,7 @@ const Register = () => {
         setErrorMessage('');
         if (password != reEntered) {
             setErrorMessage('Password must match!');
-            return; // stop here if not match
+            return; // stop here if not matched 
         }
 
         axios.post(`/auth/users/`, credentials).then(res => {
