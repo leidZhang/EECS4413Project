@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 04/11/2023 19:17:41
+ Date: 13/11/2023 00:52:39
 */
 
 SET NAMES utf8mb4;
@@ -157,16 +157,18 @@ CREATE TABLE `auth_user`  (
   `date_joined` datetime(6) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `username`(`username` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of auth_user
 -- ----------------------------
-INSERT INTO `auth_user` VALUES (1, 'pbkdf2_sha256$600000$MWT40CKVcjg3ofjl2pAtTV$30W6WVAzYaSsAwM8kwnE00/cGBwLxIDiLGSyQUedicw=', '2023-11-04 22:05:17.528867', 1, 'admin', '', '', 'admin@ecommerce.com', 1, 1, '2023-10-29 21:07:18.552059');
+INSERT INTO `auth_user` VALUES (1, 'pbkdf2_sha256$600000$MWT40CKVcjg3ofjl2pAtTV$30W6WVAzYaSsAwM8kwnE00/cGBwLxIDiLGSyQUedicw=', '2023-11-12 04:44:23.243981', 1, 'admin', '', '', 'admin@ecommerce.com', 1, 1, '2023-10-29 21:07:18.552059');
 INSERT INTO `auth_user` VALUES (6, 'pbkdf2_sha256$600000$cYgyHCPyoGpEqt5T1SePwz$y4tNPrZO1n2IRvwifCIg9+kn97kL4aIwQbgLxC1VmTU=', NULL, 0, 'lima', '', '', '', 0, 1, '2023-10-29 22:25:18.000000');
 INSERT INTO `auth_user` VALUES (7, 'pbkdf2_sha256$600000$aypZmBtLLD1S07n7qS9GJe$SAXM1bWrS0c9wOMa5pfYQpzNM1/+XTifuT78QBVBq3c=', '2023-10-30 16:03:34.136379', 0, 'js288c', '', '', '', 0, 1, '2023-10-29 23:18:39.000000');
 INSERT INTO `auth_user` VALUES (8, 'pbkdf2_sha256$600000$L47iA561Zh3bzDjb2zflWy$dERNVp9Tz3TU6mBVmLI7Sue7LKQn0XHqMQw0G7XNrhY=', NULL, 0, 'cindy', '', '', '', 0, 1, '2023-10-30 04:34:02.379567');
 INSERT INTO `auth_user` VALUES (9, 'pbkdf2_sha256$600000$JsgBQic33qDjFYveyfKB24$Iii1OOL3ZaYPIcogN2MvqpnUI8+dhYuYKK1a/XfuTnc=', NULL, 0, 'test_user', '', '', '', 0, 1, '2023-11-04 22:05:37.000000');
+INSERT INTO `auth_user` VALUES (10, 'pbkdf2_sha256$600000$9ND0vm7biTc9yoKwX1nxfx$SJFnG6e9rwpluCyfkZENspLBT7WYxuGwaPC+wDQ5RD0=', '2023-11-13 05:52:07.524621', 0, 'test_user_a', '', '', '', 0, 1, '2023-11-13 04:33:57.480062');
+INSERT INTO `auth_user` VALUES (11, 'pbkdf2_sha256$600000$ilUB66TU2n6wKaWktfaYsY$7PmpR/mavgkmc0Q/TVFIwXJ4FJkW9w3fsB72wQxGHk8=', NULL, 0, 'test_user_b', '', '', '', 0, 1, '2023-11-13 05:52:28.874859');
 
 -- ----------------------------
 -- Table structure for auth_user_groups
@@ -181,7 +183,7 @@ CREATE TABLE `auth_user_groups`  (
   INDEX `auth_user_groups_group_id_97559544_fk_auth_group_id`(`group_id` ASC) USING BTREE,
   CONSTRAINT `auth_user_groups_group_id_97559544_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `auth_user_groups_user_id_6a12ed8b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of auth_user_groups
@@ -190,6 +192,8 @@ INSERT INTO `auth_user_groups` VALUES (5, 6, 1);
 INSERT INTO `auth_user_groups` VALUES (4, 7, 1);
 INSERT INTO `auth_user_groups` VALUES (6, 8, 1);
 INSERT INTO `auth_user_groups` VALUES (7, 9, 1);
+INSERT INTO `auth_user_groups` VALUES (8, 10, 1);
+INSERT INTO `auth_user_groups` VALUES (9, 11, 1);
 
 -- ----------------------------
 -- Table structure for auth_user_user_permissions
@@ -227,6 +231,8 @@ CREATE TABLE `authtoken_token`  (
 -- Records of authtoken_token
 -- ----------------------------
 INSERT INTO `authtoken_token` VALUES ('4aac95158e486fb083a4189eb2864496ec39f076', '2023-10-29 23:19:29.560472', 7);
+INSERT INTO `authtoken_token` VALUES ('ad3a1a9f1ed58d9893b38a67e2e96f6ab3c7af11', '2023-11-13 05:52:07.362556', 10);
+INSERT INTO `authtoken_token` VALUES ('f6716e632c598fec74c9b42875c517538db51673', '2023-11-12 04:20:03.723107', 1);
 
 -- ----------------------------
 -- Table structure for data_access_brand
@@ -372,7 +378,7 @@ CREATE TABLE `django_migrations`  (
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 31 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of django_migrations
@@ -407,6 +413,7 @@ INSERT INTO `django_migrations` VALUES (27, 'shopping_cart', '0001_initial', '20
 INSERT INTO `django_migrations` VALUES (28, 'shopping_cart', '0002_rename_items_cart_products_and_more', '2023-11-04 22:17:27.602342');
 INSERT INTO `django_migrations` VALUES (29, 'ordering', '0002_rename_items_order_products_and_more', '2023-11-04 22:44:42.498651');
 INSERT INTO `django_migrations` VALUES (30, 'data_access', '0004_product_inventory', '2023-11-04 23:14:02.287708');
+INSERT INTO `django_migrations` VALUES (31, 'ordering', '0003_order_status', '2023-11-04 23:58:45.976459');
 
 -- ----------------------------
 -- Table structure for django_session
@@ -437,6 +444,7 @@ CREATE TABLE `ordering_order`  (
   `total` decimal(6, 2) NOT NULL,
   `date` date NOT NULL,
   `customer_id` int NOT NULL,
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `ordering_order_customer_id_db5570b3_fk_auth_user_id`(`customer_id` ASC) USING BTREE,
   INDEX `ordering_order_date_69350568`(`date` ASC) USING BTREE,
@@ -446,8 +454,8 @@ CREATE TABLE `ordering_order`  (
 -- ----------------------------
 -- Records of ordering_order
 -- ----------------------------
-INSERT INTO `ordering_order` VALUES (1, 0.00, '2023-11-04', 1);
-INSERT INTO `ordering_order` VALUES (2, 0.00, '2023-11-04', 1);
+INSERT INTO `ordering_order` VALUES (1, 0.00, '2023-11-04', 1, 'processing');
+INSERT INTO `ordering_order` VALUES (2, 0.00, '2023-11-04', 1, 'processing');
 
 -- ----------------------------
 -- Table structure for ordering_orderitem
