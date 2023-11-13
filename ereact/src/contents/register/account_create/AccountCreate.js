@@ -1,12 +1,12 @@
 import React, {useState} from "react";
-import './Register.css'
+import './AccountCreate.css'
 import Card from 'react-bootstrap/Card';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
-const Register = () => {
+const AccountCreate = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -28,13 +28,13 @@ const Register = () => {
         }
 
         axios.post(`/auth/users/`, credentials).then(res => {
-            console.log('Register successful');
+            console.log('AccountCreate successful');
             console.log(res.data);
             navigate('/login'); // jump to login temporarily
         }).catch(error => {
             console.log(error);
             console.log(error.response.data);
-            setErrorMessage('Register failed. Please check your credentials.');
+            setErrorMessage('AccountCreate failed. Please check your credentials.');
         });
     }
 
@@ -82,4 +82,4 @@ const Register = () => {
     );
 }
 
-export default Register;
+export default AccountCreate;
