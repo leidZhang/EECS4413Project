@@ -29,14 +29,14 @@ const Login = () => {
             console.log(error);
             console.log(error.response.data);
             setErrorMessage('Login failed. Please check your credentials.');
-        })
+        });
     }
 
     return (
-        <div id="login-container">
+        <div className="card-container">
             <Card className="login-card">
                 <h1 className="form-title">Log in</h1>
-                <Form className="login-form" onSubmit={ handleLogin }>
+                <Form className="form" onSubmit={ handleLogin }>
                     <Form.Group className="form-row" controlId="formBasicEmail">
                         <Form.Label>Username</Form.Label>
                         <Form.Control
@@ -57,7 +57,7 @@ const Login = () => {
                     </Form.Group>
                     <Breadcrumb id="register">
                         New customer?&nbsp;
-                        <Breadcrumb.Item  href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
+                        <Breadcrumb.Item  onClick={ () => navigate('/register') }>
                             Start here
                         </Breadcrumb.Item>
                     </Breadcrumb>

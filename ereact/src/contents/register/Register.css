@@ -1,0 +1,14 @@
+.register-card {
+    text-align: left;
+    margin-top: 25vh;
+    width: 600px;
+    height: 600px;
+}
+
+#register-button {
+    margin-top: 15px;
+}
+
+#last-row {
+    margin-bottom: 15px;
+}
