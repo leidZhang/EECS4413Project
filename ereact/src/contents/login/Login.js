@@ -33,10 +33,10 @@ const Login = () => {
     }
 
     return (
-        <div id="login-container">
+        <div className="card-container">
             <Card className="login-card">
                 <h1 className="form-title">Log in</h1>
-                <Form className="login-form" onSubmit={ handleLogin }>
+                <Form className="form" onSubmit={ handleLogin }>
                     <Form.Group className="form-row" controlId="formBasicEmail">
                         <Form.Label>Username</Form.Label>
                         <Form.Control
