@@ -1,5 +1,6 @@
 import './Login.css'
 import axios from "axios";
+import cookie from 'react-cookies';
 import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -23,7 +24,11 @@ const Login = () => {
 
         axios.post(`/auth/token/login/`, credentials).then(res => {
             console.log('Login successful');
-            console.log(res.data);
+
+            const token = res.data['auth_token'];
+            console.log(token);
+            cookie.save('user', token, { path: '/' });
+
             navigate('/'); // jump to homepage
         }).catch(error => {
             console.log(error);
@@ -61,7 +66,7 @@ const Login = () => {
                             Start here
                         </Breadcrumb.Item>
                     </Breadcrumb>
-                    {errorMessage && <div className="error-message">{errorMessage}</div>}
+                    {errorMessage && <div className="form-error-message">{errorMessage}</div>}
                     <div className="button-container">
                         <Button className="form-button" variant="primary" type="submit">
                             Submit

@@ -73,7 +73,7 @@ const Register = () => {
                    {errorMessage && <div className="form-error-message">{errorMessage}</div>}
                    <div className="button-container">
                        <Button className="form-button" variant="primary" type="submit">
-                           Continue
+                           Register
                        </Button>
                    </div>
                </Form>
