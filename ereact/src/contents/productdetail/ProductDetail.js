@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import NavBar from "../../component/NavBar/NavBar";
 import { useParams } from "react-router-dom";
 
 const ProductDetail = () => { // prototype detail page
