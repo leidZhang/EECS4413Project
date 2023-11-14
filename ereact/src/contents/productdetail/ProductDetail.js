@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import NavBar from "../../component/NavBar/NavBar";
-import { useParams } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 const ProductDetail = () => { // prototype detail page
+    const navigate = useNavigate();
     const { id } = useParams();
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
@@ -19,6 +19,7 @@ const ProductDetail = () => { // prototype detail page
             setDescription(data['description']);
         }).catch(error => {
             console.log(error);
+            navigate('/404');
         })
     });
 

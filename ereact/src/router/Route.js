@@ -23,8 +23,8 @@ export default [
         children: [
             // ===== home =====
             {
-                path: 'home',
-                element: <Home />
+                element: <Home />,
+                index: true,
             },
             // ===== product detail =====
             {
