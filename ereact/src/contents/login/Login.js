@@ -29,7 +29,7 @@ const Login = () => {
             console.log(token);
             cookie.save('user', token, { path: '/' });
 
-            navigate('/'); // jump to homepage
+            navigate('/home'); // jump to homepage
         }).catch(error => {
             console.log(error);
             console.log(error.response.data);
