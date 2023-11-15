@@ -1,15 +1,19 @@
 from rest_framework import serializers
 
-from data_access.serializers import ProductSerializer
 from .models import Cart, CartItem
+from data_access.models import Product
+from data_access.serializers import ProductSerializer
 
 
 class CartItemSerializer(serializers.ModelSerializer):
-    product = ProductSerializer(many=False)
+    # read only product, read via product detail
+    product = ProductSerializer(many=False, read_only=True)
+    # write only product_id, add via product id
+    product_id = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all(), source='product', write_only=True)
 
     class Meta:
         model = CartItem
-        fields = ['product', 'quantity']
+        fields = ['product_id', 'product', 'quantity']
 
 
 class CartSerializer(serializers.ModelSerializer):

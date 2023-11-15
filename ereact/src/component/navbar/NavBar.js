@@ -6,7 +6,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import cookie from "react-cookies";
-import {useLocation} from "react-router-dom";
 
 const NavBar = () => { // demonstration navbar
     const handleLogout = (event) => {
