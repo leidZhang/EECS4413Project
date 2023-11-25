@@ -53,7 +53,7 @@ export default [
             },
             // ===== order detail =====
             {
-              path: 'orderdetail',
+              path: 'order-detail',
               element: <OrderDetail />
             },
             // ===== search =====
