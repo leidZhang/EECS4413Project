@@ -23,16 +23,13 @@ const Login = () => {
         };
 
         axios.post(`/auth/token/login/`, credentials).then(res => {
-            console.log('Login successful');
-
+            // get token from the backend
             const token = res.data['auth_token'];
-            console.log(token);
-            cookie.save('user', token, { path: '/' });
+            // save token in the cookie and cookie expire after 1 year
+            cookie.save('user', token, { path: '/', expires: new Date(Date.now() + 31536000000) });
 
             navigate('/'); // jump to homepage
         }).catch(error => {
-            console.log(error);
-            console.log(error.response.data);
             setErrorMessage('Login failed. Please check your credentials.');
         });
     }

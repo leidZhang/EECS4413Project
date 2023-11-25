@@ -7,6 +7,8 @@ import Layout from "../Layout";
 import Products from "../contents/products/Products";
 import Cart from "../contents/cart/Cart";
 import Orders from "../contents/orders/Orders";
+import SearchResult from "../contents/searchresult/SearchResult";
+import OrderDetail from "../contents/orderdetail/OrderDetail";
 
 export default [
     // ===== login =====
@@ -48,6 +50,16 @@ export default [
             {
                 path: 'order',
                 element: <Orders />
+            },
+            // ===== order detail =====
+            {
+              path: 'order-detail',
+              element: <OrderDetail />
+            },
+            // ===== search =====
+            {
+                path: '/search-result',
+                element: <SearchResult />
             }
         ]
     },
