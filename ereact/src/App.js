@@ -10,10 +10,13 @@ function App() {
 
   useLayoutEffect(() => { // load token
     const token = cookie.load('user');
+    console.log(token)
 
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Token ${token}`;
       console.log("token loaded")
+    } else {
+      console.log("token not loaded");
     }
   });
 

@@ -10,10 +10,12 @@ class CartItemSerializer(serializers.ModelSerializer):
     product = ProductSerializer(many=False, read_only=True)
     # write only product_id, add via product id
     product_id = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all(), source='product', write_only=True)
+    # read only id, identify the cartItem
+    id = serializers.IntegerField(read_only=True)
 
     class Meta:
         model = CartItem
-        fields = ['product_id', 'product', 'quantity']
+        fields = ['id', 'product_id', 'product', 'quantity']
 
 
 class CartSerializer(serializers.ModelSerializer):

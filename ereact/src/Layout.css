@@ -1,0 +1,36 @@
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.form-error-message {
+    margin-left: 15px;
+    font-size: 14px;
+    color: red;
+    margin-bottom: 10px;
+}
+
+.form-title {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.form {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.form-button {
+    margin-bottom: 15px;
+    background-color: black;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.form-row {
+    margin-top: 15px;
+    font-size: 18px;
+}
