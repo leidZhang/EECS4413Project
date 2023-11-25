@@ -1,5 +1,5 @@
-from rest_framework import generics, filters
-from django.shortcuts import render
+from rest_framework import generics, status
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 from shopping_cart.models import Cart, CartItem
@@ -41,3 +41,18 @@ class CartItemView(generics.ListCreateAPIView):
         else:
             # If the item does not exist, create a new one
             serializer.save(cart_id=user.id)
+
+
+class SingleCartItemView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CartItem.objects.all()
+    serializer_class = CartItemSerializer
+
+    def get_queryset(self):
+        cart = self.get_object()
+        return CartItem.objects.filter(cart=cart)
+
+    def get_object(self):
+        cart_item = CartItem.objects.all()
+        filter_kwargs = {'pk': self.kwargs['pk']}
+        obj = get_object_or_404(cart_item, **filter_kwargs)
+        return obj
