@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Order',
+            name='Checkout',
             fields=[
                 ('customer', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to='identity.customer')),
                 ('total', models.DecimalField(decimal_places=2, max_digits=6)),

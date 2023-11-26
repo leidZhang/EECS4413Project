@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
-import {Card, CardText, ListGroup} from "react-bootstrap";
+import {CardText, ListGroup} from "react-bootstrap";
 import CartItem from "../cartitem/CartItem";
 import axios from "axios";
 
-const CartItemList = () => {
+const CartItemList = ({ onItemList }) => {
     const [itemList, setItemList] = useState([]);
     const [total, setTotal] = useState(0.00);
 
@@ -21,7 +21,7 @@ const CartItemList = () => {
         axios.get(`api/shopping-cart/cart/products`).then(res => {
             const data = res.data
             setItemList(data);
-            console.log(data);
+            onItemList(data);
         }).catch(error => {
             console.log(error);
         });
@@ -37,8 +37,9 @@ const CartItemList = () => {
     }
 
     return (
-        <Card className="cart-card">
+        <div>
             <ListGroup>
+                {itemList.length === 0 && <CardText className="cart-item-text">Your cart is empty</CardText>}
                 {itemList.length > 0 && itemList.map(item => (
                     <CartItem
                         data={item}
@@ -50,7 +51,7 @@ const CartItemList = () => {
             <CardText className="cart-item-text" id="cart-total-price">
                 Total Price: ${total}
             </CardText>
-        </Card>
+        </div>
     );
 };
 

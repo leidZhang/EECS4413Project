@@ -11,6 +11,10 @@
     font-weight: bold;
 }
 
+#cart-item-title:hover {
+    cursor: pointer;
+}
+
 .cart-item-text {
     margin: 0px;
 }

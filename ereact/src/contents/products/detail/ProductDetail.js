@@ -8,6 +8,7 @@ const ProductDetail = () => { // prototype detail page
     const navigate = useNavigate();
     const { id } = useParams();
     const [description, setDescription] = useState('');
+    const [img, setImg] = useState('');
     const [price, setPrice] = useState('');
     const [title, setTitle] = useState('');
     const [brand, setBrand] = useState('');
@@ -24,6 +25,7 @@ const ProductDetail = () => { // prototype detail page
             setDescription(data['description']);
             setCategory(data['category']);
             setBrand(data['brand']);
+            setImg(data['image']);
         }).catch(error => {
             console.log(error);
             navigate('/404');
@@ -39,7 +41,7 @@ const ProductDetail = () => { // prototype detail page
         }
 
         axios.post(`http://localhost:8000/api/shopping-cart/cart/products`, data).then(res => {
-            console.log('Add to Order!');
+            console.log('Add to Checkout!');
         }).catch(error => {
             console.log(error);
         })
@@ -47,6 +49,7 @@ const ProductDetail = () => { // prototype detail page
 
     return (
         <div id="product-container" >
+            <img src={img} className="product-detail-img" />
             <p>This is the page for { id } product's details</p>
             <p>Title: { title } </p>
             <p>Description: { description } </p>
