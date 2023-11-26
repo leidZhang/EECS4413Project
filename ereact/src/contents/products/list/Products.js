@@ -1,6 +1,6 @@
 import React from "react";
 
-const Products = () => {
+const Products = () => { // list by category
     return (
         <div>
             Product list page!
