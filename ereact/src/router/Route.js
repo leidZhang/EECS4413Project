@@ -1,15 +1,15 @@
 import Home from "../contents/home/Home";
-import ProductDetail from "../contents/productdetail/ProductDetail";
-import Register from "../contents/register/Register";
-import Login from "../contents/login/Login";
+import ProductDetail from "../contents/products/detail/ProductDetail";
+import Register from "../contents/user/register/Register";
+import Login from "../contents/user/login/Login";
 import NotFound from "../contents/notfound/NotFound";
 import Layout from "../Layout";
-import Products from "../contents/products/Products";
-import Order from "../contents/order/Order";
-import Cart from  "../contents/cart/Cart";
-import OrdersHistory from "../contents/orderhistory/OrdersHistory";
-import SearchResult from "../contents/searchresult/SearchResult";
-import OrderDetail from "../contents/orderdetail/OrderDetail";
+import Products from "../contents/products/list/Products";
+import Order from "../contents/order/add/Order";
+import Cart from "../contents/user/cart/Cart";
+import OrdersHistory from "../contents/order/history/OrdersHistory";
+import SearchResult from "../contents/products/searchresult/SearchResult";
+import OrderDetail from "../contents/order/detail/OrderDetail";
 
 export default [
     // ===== login =====

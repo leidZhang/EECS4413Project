@@ -1,7 +1,7 @@
 import React from "react";
 import './Order.css';
 import {Accordion, Card, CardText, CardTitle, ListGroup} from "react-bootstrap";
-import CartItemList from "../../component/cartitemlist/CartItemList";
+import CartItemList from "../../../component/cartitemlist/CartItemList";
 
 const Order = () => {
     return (
