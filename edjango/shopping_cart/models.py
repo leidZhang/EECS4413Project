@@ -13,6 +13,13 @@ class Cart(models.Model):
     def __str__(self):
         return str(self.customer.username)
 
+    def update_total(self):
+        cart_items = CartItem.objects.filter(cart=self)
+        total = sum(item.quantity * item.product.price for item in cart_items)
+
+        self.total = total
+        self.save()
+
 
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)

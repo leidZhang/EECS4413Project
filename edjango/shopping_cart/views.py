@@ -18,6 +18,7 @@ class CartView(generics.ListCreateAPIView):
 class CartItemView(generics.ListCreateAPIView):
     queryset = CartItem.objects.all()
     serializer_class = CartItemSerializer
+    pagination_class = None
 
     def get_queryset(self):
         user = self.request.user
@@ -42,6 +43,9 @@ class CartItemView(generics.ListCreateAPIView):
             # If the item does not exist, create a new one
             serializer.save(cart_id=user.id)
 
+        # update the total price
+        cart.update_total()
+
 
 class SingleCartItemView(generics.RetrieveUpdateDestroyAPIView):
     queryset = CartItem.objects.all()
@@ -56,3 +60,16 @@ class SingleCartItemView(generics.RetrieveUpdateDestroyAPIView):
         filter_kwargs = {'pk': self.kwargs['pk']}
         obj = get_object_or_404(cart_item, **filter_kwargs)
         return obj
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
+        # Update the shopping cart's total price when a cart item is updated
+        cart = instance.cart
+        cart.update_total()
+
+    def perform_destroy(self, instance):
+        # Delete the cart item
+        instance.delete()
+        # Update the shopping cart's total price when a cart item is deleted
+        cart = instance.cart
+        cart.update_total()
