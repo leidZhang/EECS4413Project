@@ -65,7 +65,7 @@ const TopNavBar = () => {
                     <Nav.Link>My Account</Nav.Link>
                 </OverlayTrigger>
                 <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
-                <Nav.Link id="order-link" as={Link} to="/order">Orders</Nav.Link>
+                <Nav.Link id="order-link" as={Link} to="/order-history">Orders</Nav.Link>
             </Nav>
         </Navbar>
     );

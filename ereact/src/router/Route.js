@@ -5,7 +5,7 @@ import Login from "../contents/user/login/Login";
 import NotFound from "../contents/notfound/NotFound";
 import Layout from "../Layout";
 import Products from "../contents/products/list/Products";
-import Order from "../contents/order/add/Order";
+import Checkout from "../contents/order/checkout/Checkout";
 import Cart from "../contents/user/cart/Cart";
 import OrdersHistory from "../contents/order/history/OrdersHistory";
 import SearchResult from "../contents/products/searchresult/SearchResult";
@@ -47,10 +47,10 @@ export default [
                 path: 'cart',
                 element: <Cart />
             },
-            // ===== order =====
+            // ===== checkout =====
             {
-                path: 'order',
-                element: <Order />
+                path: 'checkout',
+                element: <Checkout />
             },
             // ===== order history =====
             {

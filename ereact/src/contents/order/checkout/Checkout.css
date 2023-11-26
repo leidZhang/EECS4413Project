@@ -11,8 +11,14 @@
 
 #cart-accordion {
     width: fit-content;
+    margin-top: 10px;
 }
 
 #cart-form-body {
     padding: 0px;
+}
+
+.confirm-button {
+    margin-top: 10px;
+    margin-right: 10px;
 }

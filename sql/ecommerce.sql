@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 25/11/2023 22:33:53
+ Date: 26/11/2023 12:55:59
 */
 
 SET NAMES utf8mb4;
@@ -463,7 +463,7 @@ CREATE TABLE `ordering_order`  (
   INDEX `ordering_order_customer_id_db5570b3_fk_auth_user_id`(`customer_id` ASC) USING BTREE,
   INDEX `ordering_order_date_69350568`(`date` ASC) USING BTREE,
   CONSTRAINT `ordering_order_customer_id_db5570b3_fk_auth_user_id` FOREIGN KEY (`customer_id`) REFERENCES `auth_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ordering_order
@@ -472,6 +472,8 @@ INSERT INTO `ordering_order` VALUES (1, 0.00, '2023-11-04', 1, 'processing');
 INSERT INTO `ordering_order` VALUES (2, 0.00, '2023-11-04', 1, 'processing');
 INSERT INTO `ordering_order` VALUES (3, 0.00, '2023-11-13', 9, 'processing');
 INSERT INTO `ordering_order` VALUES (4, 0.00, '2023-11-13', 11, 'processing');
+INSERT INTO `ordering_order` VALUES (8, 71.68, '2023-11-26', 1, 'processing');
+INSERT INTO `ordering_order` VALUES (9, 10.24, '2023-11-26', 1, 'processing');
 
 -- ----------------------------
 -- Table structure for ordering_orderitem
@@ -487,13 +489,18 @@ CREATE TABLE `ordering_orderitem`  (
   INDEX `ordering_orderitem_product_id_174724c2_fk_data_access_product_id`(`product_id` ASC) USING BTREE,
   CONSTRAINT `ordering_orderitem_order_id_050e4dc5_fk_ordering_order_id` FOREIGN KEY (`order_id`) REFERENCES `ordering_order` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `ordering_orderitem_product_id_174724c2_fk_data_access_product_id` FOREIGN KEY (`product_id`) REFERENCES `data_access_product` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ordering_orderitem
 -- ----------------------------
 INSERT INTO `ordering_orderitem` VALUES (1, 1, 1, 1);
 INSERT INTO `ordering_orderitem` VALUES (2, 2, 1, 2);
+INSERT INTO `ordering_orderitem` VALUES (4, 2, 1, 8);
+INSERT INTO `ordering_orderitem` VALUES (5, 1, 2, 8);
+INSERT INTO `ordering_orderitem` VALUES (6, 2, 3, 8);
+INSERT INTO `ordering_orderitem` VALUES (7, 2, 4, 8);
+INSERT INTO `ordering_orderitem` VALUES (8, 1, 1, 9);
 
 -- ----------------------------
 -- Table structure for shopping_cart_cart
@@ -509,7 +516,7 @@ CREATE TABLE `shopping_cart_cart`  (
 -- ----------------------------
 -- Records of shopping_cart_cart
 -- ----------------------------
-INSERT INTO `shopping_cart_cart` VALUES (1, 71.68);
+INSERT INTO `shopping_cart_cart` VALUES (1, 0.00);
 INSERT INTO `shopping_cart_cart` VALUES (6, 0.00);
 INSERT INTO `shopping_cart_cart` VALUES (7, 0.00);
 
@@ -527,15 +534,11 @@ CREATE TABLE `shopping_cart_cartitem`  (
   INDEX `shopping_cart_cartit_product_id_327be483_fk_data_acce`(`product_id` ASC) USING BTREE,
   CONSTRAINT `shopping_cart_cartit_cart_id_adaf8330_fk_shopping_` FOREIGN KEY (`cart_id`) REFERENCES `shopping_cart_cart` (`customer_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `shopping_cart_cartit_product_id_327be483_fk_data_acce` FOREIGN KEY (`product_id`) REFERENCES `data_access_product` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of shopping_cart_cartitem
 -- ----------------------------
 INSERT INTO `shopping_cart_cartitem` VALUES (19, 1, 7, 1);
-INSERT INTO `shopping_cart_cartitem` VALUES (20, 2, 1, 1);
-INSERT INTO `shopping_cart_cartitem` VALUES (21, 1, 1, 2);
-INSERT INTO `shopping_cart_cartitem` VALUES (22, 2, 1, 3);
-INSERT INTO `shopping_cart_cartitem` VALUES (23, 2, 1, 4);
 
 SET FOREIGN_KEY_CHECKS = 1;
