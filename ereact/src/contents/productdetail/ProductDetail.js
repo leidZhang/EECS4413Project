@@ -39,7 +39,7 @@ const ProductDetail = () => { // prototype detail page
         }
 
         axios.post(`http://localhost:8000/api/shopping-cart/cart/products`, data).then(res => {
-            console.log('Add to Cart!');
+            console.log('Add to Order!');
         }).catch(error => {
             console.log(error);
         })

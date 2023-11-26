@@ -17,7 +17,7 @@ class BrandSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['id', 'title', 'description', 'price', 'category', 'brand']
+        fields = ['id', 'title', 'description', 'price', 'category', 'brand', 'image']
 
 
 class SingleProductSerializer(generics.RetrieveUpdateAPIView):

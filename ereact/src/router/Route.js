@@ -5,8 +5,9 @@ import Login from "../contents/login/Login";
 import NotFound from "../contents/notfound/NotFound";
 import Layout from "../Layout";
 import Products from "../contents/products/Products";
-import Cart from "../contents/cart/Cart";
-import Orders from "../contents/orders/Orders";
+import Order from "../contents/order/Order";
+import Cart from  "../contents/cart/Cart";
+import OrdersHistory from "../contents/orderhistory/OrdersHistory";
 import SearchResult from "../contents/searchresult/SearchResult";
 import OrderDetail from "../contents/orderdetail/OrderDetail";
 
@@ -46,10 +47,15 @@ export default [
                 path: 'cart',
                 element: <Cart />
             },
-            // ===== orders =====
+            // ===== order =====
             {
                 path: 'order',
-                element: <Orders />
+                element: <Order />
+            },
+            // ===== order history =====
+            {
+                path: 'order-history',
+                element: <OrdersHistory />
             },
             // ===== order detail =====
             {

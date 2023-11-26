@@ -19,9 +19,8 @@ const TopNavBar = () => {
         const token = cookie.load('user');
 
         axios.post(`auth/token/logout/`).then(res => {
-            cookie.remove('user');
-            delete axios.defaults.headers.common['Authorization'];
-            console.log(res.data);
+            cookie.remove('user'); // remove token in the cookie
+            delete axios.defaults.headers.common['Authorization']; // remove token in the request header
             console.log('logout!');
         }).catch(error => {
             console.log(error.response.data)
@@ -66,7 +65,7 @@ const TopNavBar = () => {
                     <Nav.Link>My Account</Nav.Link>
                 </OverlayTrigger>
                 <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
-                <Nav.Link id="order-link" as={Link} to="/order">Order</Nav.Link>
+                <Nav.Link id="order-link" as={Link} to="/order">Orders</Nav.Link>
             </Nav>
         </Navbar>
     );
