@@ -9,6 +9,7 @@ from .serializers import CartSerializer, CartItemSerializer
 class CartView(generics.ListCreateAPIView):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
+    pagination_class = None
 
     def get_queryset(self):
         user = self.request.user

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {CardText, ListGroup} from "react-bootstrap";
-import CartItem from "../cartitem/CartItem";
+import CartItem from "../cartItem/CartItem";
 import axios from "axios";
 
 const CartItemList = ({ onItemList }) => {
