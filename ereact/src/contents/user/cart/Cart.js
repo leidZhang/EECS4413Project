@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Card} from "react-bootstrap";
 import './Cart.css'
-import CartItemList from "../../../component/cartitemlist/CartItemList";
+import CartItemList from "../../../component/cartItemList/CartItemList";
 import Button from "react-bootstrap/Button";
 import {useNavigate} from "react-router-dom";
 

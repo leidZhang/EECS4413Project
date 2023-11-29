@@ -1,3 +1,4 @@
+import decimal
 from datetime import date
 from django.shortcuts import render, get_object_or_404
 from rest_framework import status
@@ -25,7 +26,8 @@ class OrderView(generics.ListCreateAPIView):
         cart = Cart.objects.get(customer_id=customer.id)
 
         # create new order
-        order = Order.objects.create(customer=customer, total=cart.total, date=today)
+        total = cart.total * decimal.Decimal(1.15)  # temp gst calculation
+        order = Order.objects.create(customer=customer, total=total, date=today)
         # transfer item to order
         cart_items = CartItem.objects.filter(cart=cart)
         for item in cart_items:

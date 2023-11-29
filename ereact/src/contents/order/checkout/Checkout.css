@@ -22,3 +22,16 @@
     margin-top: 10px;
     margin-right: 10px;
 }
+
+.checkout-card {
+    width: 800px;
+    text-align: left;
+}
+
+#checkout-form-row {
+    margin-top: 10px;
+}
+
+#payment-buttons {
+    margin-bottom: 15px;
+}
