@@ -29,7 +29,8 @@ const CartItemList = ({ onItemList }) => {
 
     const renderTotal = () => {
         axios.get(`api/shopping-cart/cart`).then(res => {
-            const data = res.data['results'][0];
+            console.log(res.data);
+            const data = res.data[0];
             setTotal(data['total']);
         }).catch(error => {
             console.log(error);
