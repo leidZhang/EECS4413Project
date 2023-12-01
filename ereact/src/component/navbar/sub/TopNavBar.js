@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Navbar from "react-bootstrap/Navbar";
 import {Link, useNavigate} from "react-router-dom";
 import Container from "react-bootstrap/Container";
@@ -13,6 +13,8 @@ import Popover from "react-bootstrap/Popover";
 
 const TopNavBar = () => {
     const navigate = useNavigate();
+    const [prodResult, setProdResult] = useState(null);
+    const [query, setQuery] = useState("");
 
     // logout function
     const handleLogout = (event) => {
@@ -38,6 +40,11 @@ const TopNavBar = () => {
         </Popover>
     );
 
+    const handleSearch = () => {
+       // search button, more functions will be added
+       navigate(`/search-result?search=${query}`);
+    };
+
     return (
         <Navbar className="bg-body-tertiary">
             <Navbar.Brand id="brand" className="nav-bar-component" as={Link} to="/">
@@ -49,8 +56,10 @@ const TopNavBar = () => {
                         placeholder="Search e-commerce website"
                         aria-label="Search e-commerce website"
                         aria-describedby="basic-addon2"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
                     />
-                    <Button variant="outline-secondary" id="button-addon2">
+                    <Button variant="outline-secondary" id="button-addon2" onClick={() => handleSearch()}>
                         Search
                     </Button>
                 </InputGroup>
