@@ -56,15 +56,13 @@ const TopNavBar = () => {
 
     const handleOption = (value) => {
         setOption(value);
-        if (value !== "all") {
-            setCategory(value);
-        }
+        setCategory(value);
     }
 
     const handleSearch = () => {
        // search button, more functions will be added
        let search = `search=${query}`;
-       if (category !== "") { // handle category
+       if (category !== "all") { // handle category
             search += `&category=${category}`;
        }
 
