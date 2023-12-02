@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Navbar from "react-bootstrap/Navbar";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate, useSearchParams} from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
@@ -10,16 +10,30 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import cookie from "react-cookies";
 import axios from "axios";
 import Popover from "react-bootstrap/Popover";
+import {DropdownButton, DropdownItem} from "react-bootstrap";
 
 const TopNavBar = () => {
     const navigate = useNavigate();
-    const [prodResult, setProdResult] = useState(null);
+    const [searchParams] = useSearchParams();
+    const [option, setOption] = useState("all");
+    const [optionList, setOptionList] = useState(null);
     const [query, setQuery] = useState("");
+    const [category, setCategory] = useState("");
+
+    useEffect(() =>{
+        axios.get(`/api/data-access/categories`).then(res => {
+            const data = res.data;
+            setOptionList(data);
+
+            const selectedCategory = searchParams.get("category");
+            if (selectedCategory != null) setOption(selectedCategory);
+        }).catch(error => {
+            console.error(error);
+        })
+    }, [searchParams]);
 
     // logout function
     const handleLogout = (event) => {
-        const token = cookie.load('user');
-
         axios.post(`auth/token/logout/`).then(res => {
             cookie.remove('user'); // remove token in the cookie
             delete axios.defaults.headers.common['Authorization']; // remove token in the request header
@@ -40,9 +54,21 @@ const TopNavBar = () => {
         </Popover>
     );
 
+    const handleOption = (value) => {
+        setOption(value);
+        if (value !== "all") {
+            setCategory(value);
+        }
+    }
+
     const handleSearch = () => {
        // search button, more functions will be added
-       navigate(`/search-result?search=${query}`);
+       let search = `search=${query}`;
+       if (category !== "") { // handle category
+            search += `&category=${category}`;
+       }
+
+       navigate(`/search-result?${search}`);
     };
 
     return (
@@ -52,6 +78,16 @@ const TopNavBar = () => {
             </Navbar.Brand>
             <Container id="search">
                 <InputGroup>
+                    <DropdownButton variant="outline-secondary" title={option}>
+                        <DropdownItem key="0" onClick={() => handleOption("all")}>
+                            all
+                        </DropdownItem>
+                        {optionList && optionList.map(item => (
+                            <DropdownItem key={item['id']} onClick={() => handleOption(item['title'])}>
+                                {item['title']}
+                            </DropdownItem>
+                        ))}
+                    </DropdownButton>
                     <Form.Control
                         placeholder="Search e-commerce website"
                         aria-label="Search e-commerce website"
