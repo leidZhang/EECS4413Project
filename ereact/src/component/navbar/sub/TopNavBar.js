@@ -25,8 +25,15 @@ const TopNavBar = () => {
             const data = res.data;
             setOptionList(data);
 
+            // init option
             const selectedCategory = searchParams.get("category");
-            if (selectedCategory != null) setOption(selectedCategory);
+            if (selectedCategory != null) {
+                setOption(selectedCategory);
+                setCategory(selectedCategory);
+            } else {
+                setOption("all");
+                setCategory("all");
+            }
         }).catch(error => {
             console.error(error);
         })
@@ -62,6 +69,7 @@ const TopNavBar = () => {
     const handleSearch = () => {
        // search button, more functions will be added
        let search = `search=${query}`;
+       console.log(category);
        if (category !== "all") { // handle category
             search += `&category=${category}`;
        }
