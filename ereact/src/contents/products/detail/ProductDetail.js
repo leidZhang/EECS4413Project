@@ -55,7 +55,7 @@ const ProductDetail = () => { // prototype detail page
             <p>Description: { description } </p>
             <p>Price: { price }</p>
             <p>Category: { category }</p>
-            <p>Brand: { brand }</p>
+            <p>Brand: { brand.title }</p>
             <p>QTY</p>
             <input type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
             <div id="button-container">

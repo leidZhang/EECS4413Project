@@ -15,9 +15,12 @@ class BrandSerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    brand = BrandSerializer(read_only=True)
+    brand_id = serializers.PrimaryKeyRelatedField(queryset=Brand.objects.all(), source='brand', write_only=True)
+
     class Meta:
         model = Product
-        fields = ['id', 'title', 'description', 'price', 'category', 'brand', 'image']
+        fields = ['id', 'title', 'description', 'price', 'category', 'brand', 'brand_id', 'image']
 
 
 class SingleProductSerializer(generics.RetrieveUpdateAPIView):
