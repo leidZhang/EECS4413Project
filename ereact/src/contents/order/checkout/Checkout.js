@@ -1,13 +1,17 @@
 import React, {useState} from "react";
 import './Checkout.css';
 import {Accordion, Card} from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import AddressForm from "../../../component/addressForm/AddressForm";
 import PaymentForm from "../../../component/paymentForm/PaymentForm";
 import OrderSummaryForm from "../../../component/orderSummaryForm/OrderSummaryForm";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 const Checkout = () => {
+    const navigate = useNavigate();
     const [activeKey, setActiveKey] = useState("0");
+    const [addressForm, setAddressForm] = useState(null);
+    const [paymentForm, setPaymentForm] = useState(null);
 
     const handleToggleNext = () => {
         switch (activeKey) {
@@ -35,6 +39,36 @@ const Checkout = () => {
         }
     }
 
+    const handleAddress = (addressInfo) => {
+        setAddressForm(addressInfo);
+    }
+
+    const handlePayment = (paymentInfo) => {
+        setPaymentForm(paymentInfo);
+    }
+
+    const handleOrderPlace = () => {
+        const orderInfo = {
+            firstName: addressForm.firstName,
+            lastName: addressForm.lastName,
+            phoneNum: addressForm.phoneNum,
+            address1: addressForm.address1,
+            address2: addressForm.address2,
+            city: addressForm.city,
+            province: addressForm.province,
+            postalCode: addressForm.postalCode,
+            paymentMethod: paymentForm.paymentMethod
+        }
+
+        console.log(orderInfo);
+        axios.post(`/api/ordering/orders`, orderInfo).then(res => {
+            console.log(res.data);
+            navigate('/order-detail');
+        }).catch(error => {
+            console.log(error);
+        });
+    };
+
     return (
         <div className="card-container">
             <Accordion defaultActiveKey="0" activeKey={activeKey} id="cart-accordion">
@@ -43,7 +77,10 @@ const Checkout = () => {
                     <Accordion.Body>
                         <div className="card-container">
                             <Card className="checkout-card">
-                                <AddressForm onToggleNext={handleToggleNext} />
+                                <AddressForm
+                                    onToggleNext={handleToggleNext}
+                                    onSubmitAddress={handleAddress}
+                                />
                             </Card>
                         </div>
                     </Accordion.Body>
@@ -53,7 +90,11 @@ const Checkout = () => {
                     <Accordion.Body>
                         <div className="card-container">
                             <Card className="checkout-card">
-                                <PaymentForm onToggleNext={handleToggleNext} onTogglePrev={handleTogglePrev}/>
+                                <PaymentForm
+                                    onToggleNext={handleToggleNext}
+                                    onTogglePrev={handleTogglePrev}
+                                    onSubmitPayment={handlePayment}
+                                />
                             </Card>
                         </div>
                     </Accordion.Body>
@@ -63,7 +104,10 @@ const Checkout = () => {
                     <Accordion.Body>
                         <div className="card-container">
                             <Card className="checkout-card">
-                                <OrderSummaryForm onTogglePrev={handleTogglePrev}/>
+                                <OrderSummaryForm
+                                    onTogglePrev={handleTogglePrev}
+                                    onSubmitOrder={handleOrderPlace}
+                                />
                             </Card>
                         </div>
                     </Accordion.Body>
