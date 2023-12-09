@@ -25,9 +25,24 @@ class OrderView(generics.ListCreateAPIView):
         customer = self.request.user
         cart = Cart.objects.get(customer_id=customer.id)
 
+        # receive info from the front end
+        order_info = request.data
         # create new order
         total = cart.total * decimal.Decimal(1.15)  # temp gst calculation
         order = Order.objects.create(customer=customer, total=total, date=today)
+        # push other data to order
+        order.first_name = order_info.get('firstName', '')
+        order.last_name = order_info.get('lastName', '')
+        order.phone_num = order_info.get('phoneNum', '')
+        order.address_1 = order_info.get('address1', '')
+        order.address_2 = order_info.get('address2', '')
+        order.city = order_info.get('city', '')
+        order.province = order_info.get('province', '')
+        order.postal_code = order_info.get('postalCode', '')
+        order.payment_method = order_info.get('paymentMethod', '')
+        # save new data
+        order.save()
+
         # transfer item to order
         cart_items = CartItem.objects.filter(cart=cart)
         for item in cart_items:

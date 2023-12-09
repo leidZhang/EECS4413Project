@@ -2,10 +2,9 @@ import React, {useEffect, useState} from "react";
 import {Col, Form, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
 
-const OrderSummaryForm = ({ onTogglePrev }) => {
-    const navigate = useNavigate();
+const OrderSummaryForm = ({ onTogglePrev, onSubmitOrder }) => {
+
     const [total, setTotal] = useState(0.00);
     const [tax, setTax] = useState(0.00);
 
@@ -18,15 +17,6 @@ const OrderSummaryForm = ({ onTogglePrev }) => {
             console.log(error);
         })
     }, []);
-
-    const handleOrderPlace = () => {
-       axios.post(`/api/ordering/orders`).then(res => {
-           console.log(res.data);
-           navigate('/order-detail');
-       }).catch(error => {
-           console.log(error);
-       })
-    };
 
     return (
         <Form className="form">
@@ -46,8 +36,17 @@ const OrderSummaryForm = ({ onTogglePrev }) => {
                 </Col>
             </Row>
             <div className="button-container" id="payment-buttons">
-                <Button className="confirm-button" onClick={() => handleOrderPlace()}>Place Your Order</Button>
-                <Button className="confirm-button" onClick={onTogglePrev}>Back</Button>
+                <Button
+                    className="confirm-button"
+                    onClick={onSubmitOrder}>
+                    Place Your Order
+                </Button>
+                <Button
+                    className="confirm-button"
+                    onClick={onTogglePrev}
+                >
+                    Back
+                </Button>
             </div>
         </Form>
     );

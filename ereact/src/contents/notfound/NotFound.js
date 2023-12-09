@@ -6,9 +6,9 @@ const NotFound = () => { // implement 404 page
     return (
         <div className="not-found">
             <div>
-                <h2>404 Not Found</h2>
-                <p>Have a break?</p>
-                <p>That page cannot be found</p>
+                <h2 className="not-fount-title">404 Not Found</h2>
+                <p className="not-fount-text">Have a break?</p>
+                <p className="not-fount-text">That page cannot be found</p>
                 <Link to="/ ">Back to the homepage...</Link>
             </div>
         </div>

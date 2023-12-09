@@ -1,11 +1,11 @@
-h2  {
+.not-fount-title  {
     font-family:"Times New Roman", Times, serif;
     font-weight: bold;
     font-size: xxx-large;
     text-align: center;
 }
 
-p {
+.not-found-text {
     text-align: center;
     font-size: large;
 }
