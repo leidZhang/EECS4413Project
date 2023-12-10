@@ -18,7 +18,8 @@ class OrderView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Order.objects.filter(customer=user)
+        print(user)
+        return Order.objects.filter(customer_id=user.id)
 
     def create(self, request):
         today = date.today()

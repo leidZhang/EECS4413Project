@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 08/12/2023 19:13:47
+ Date: 09/12/2023 23:13:32
 */
 
 SET NAMES utf8mb4;
@@ -65,7 +65,7 @@ CREATE TABLE `auth_permission`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `auth_permission_content_type_id_codename_01ab375a_uniq`(`content_type_id` ASC, `codename` ASC) USING BTREE,
   CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 69 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 85 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of auth_permission
@@ -138,6 +138,22 @@ INSERT INTO `auth_permission` VALUES (65, 'Can add cart item', 17, 'add_cartitem
 INSERT INTO `auth_permission` VALUES (66, 'Can change cart item', 17, 'change_cartitem');
 INSERT INTO `auth_permission` VALUES (67, 'Can delete cart item', 17, 'delete_cartitem');
 INSERT INTO `auth_permission` VALUES (68, 'Can view cart item', 17, 'view_cartitem');
+INSERT INTO `auth_permission` VALUES (69, 'Can add color', 18, 'add_color');
+INSERT INTO `auth_permission` VALUES (70, 'Can change color', 18, 'change_color');
+INSERT INTO `auth_permission` VALUES (71, 'Can delete color', 18, 'delete_color');
+INSERT INTO `auth_permission` VALUES (72, 'Can view color', 18, 'view_color');
+INSERT INTO `auth_permission` VALUES (73, 'Can add size', 19, 'add_size');
+INSERT INTO `auth_permission` VALUES (74, 'Can change size', 19, 'change_size');
+INSERT INTO `auth_permission` VALUES (75, 'Can delete size', 19, 'delete_size');
+INSERT INTO `auth_permission` VALUES (76, 'Can view size', 19, 'view_size');
+INSERT INTO `auth_permission` VALUES (77, 'Can add inventory', 20, 'add_inventory');
+INSERT INTO `auth_permission` VALUES (78, 'Can change inventory', 20, 'change_inventory');
+INSERT INTO `auth_permission` VALUES (79, 'Can delete inventory', 20, 'delete_inventory');
+INSERT INTO `auth_permission` VALUES (80, 'Can view inventory', 20, 'view_inventory');
+INSERT INTO `auth_permission` VALUES (81, 'Can add inventory', 21, 'add_inventory');
+INSERT INTO `auth_permission` VALUES (82, 'Can change inventory', 21, 'change_inventory');
+INSERT INTO `auth_permission` VALUES (83, 'Can delete inventory', 21, 'delete_inventory');
+INSERT INTO `auth_permission` VALUES (84, 'Can view inventory', 21, 'view_inventory');
 
 -- ----------------------------
 -- Table structure for auth_user
@@ -162,7 +178,7 @@ CREATE TABLE `auth_user`  (
 -- ----------------------------
 -- Records of auth_user
 -- ----------------------------
-INSERT INTO `auth_user` VALUES (1, 'pbkdf2_sha256$600000$MWT40CKVcjg3ofjl2pAtTV$30W6WVAzYaSsAwM8kwnE00/cGBwLxIDiLGSyQUedicw=', '2023-11-30 16:32:35.326278', 1, 'admin', '', '', 'admin@ecommerce.com', 1, 1, '2023-10-29 21:07:18.552059');
+INSERT INTO `auth_user` VALUES (1, 'pbkdf2_sha256$600000$MWT40CKVcjg3ofjl2pAtTV$30W6WVAzYaSsAwM8kwnE00/cGBwLxIDiLGSyQUedicw=', '2023-12-10 04:09:14.245452', 1, 'admin', '', '', 'admin@ecommerce.com', 1, 1, '2023-10-29 21:07:18.552059');
 INSERT INTO `auth_user` VALUES (6, 'pbkdf2_sha256$600000$cYgyHCPyoGpEqt5T1SePwz$y4tNPrZO1n2IRvwifCIg9+kn97kL4aIwQbgLxC1VmTU=', NULL, 0, 'lima', '', '', '', 0, 1, '2023-10-29 22:25:18.000000');
 INSERT INTO `auth_user` VALUES (7, 'pbkdf2_sha256$600000$aypZmBtLLD1S07n7qS9GJe$SAXM1bWrS0c9wOMa5pfYQpzNM1/+XTifuT78QBVBq3c=', '2023-10-30 16:03:34.136379', 0, 'js288c', '', '', '', 0, 1, '2023-10-29 23:18:39.000000');
 INSERT INTO `auth_user` VALUES (8, 'pbkdf2_sha256$600000$L47iA561Zh3bzDjb2zflWy$dERNVp9Tz3TU6mBVmLI7Sue7LKQn0XHqMQw0G7XNrhY=', NULL, 0, 'cindy', '', '', '', 0, 1, '2023-10-30 04:34:02.379567');
@@ -234,6 +250,35 @@ INSERT INTO `authtoken_token` VALUES ('84da652429c0742ca61cbc89e84b437cda41d65a'
 INSERT INTO `authtoken_token` VALUES ('ad3a1a9f1ed58d9893b38a67e2e96f6ab3c7af11', '2023-11-13 05:52:07.362556', 10);
 
 -- ----------------------------
+-- Table structure for catalog_inventory
+-- ----------------------------
+DROP TABLE IF EXISTS `catalog_inventory`;
+CREATE TABLE `catalog_inventory`  (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `stock` int NOT NULL,
+  `color_id` bigint NOT NULL,
+  `product_id` bigint NOT NULL,
+  `size_id` bigint NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `catalog_inventory_color_id_85767061_fk_data_access_color_id`(`color_id` ASC) USING BTREE,
+  INDEX `catalog_inventory_size_id_8beb3028_fk_data_access_size_id`(`size_id` ASC) USING BTREE,
+  UNIQUE INDEX `catalog_inventory_product_id_size_id_color_id_5ef39032_uniq`(`product_id` ASC, `size_id` ASC, `color_id` ASC) USING BTREE,
+  CONSTRAINT `catalog_inventory_color_id_85767061_fk_data_access_color_id` FOREIGN KEY (`color_id`) REFERENCES `data_access_color` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `catalog_inventory_product_id_6f683a4a_fk_data_access_product_id` FOREIGN KEY (`product_id`) REFERENCES `data_access_product` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `catalog_inventory_size_id_8beb3028_fk_data_access_size_id` FOREIGN KEY (`size_id`) REFERENCES `data_access_size` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of catalog_inventory
+-- ----------------------------
+INSERT INTO `catalog_inventory` VALUES (1, 100, 1, 1, 6);
+INSERT INTO `catalog_inventory` VALUES (2, 100, 3, 2, 4);
+INSERT INTO `catalog_inventory` VALUES (3, 100, 3, 3, 6);
+INSERT INTO `catalog_inventory` VALUES (4, 0, 2, 4, 5);
+INSERT INTO `catalog_inventory` VALUES (5, 0, 3, 5, 6);
+INSERT INTO `catalog_inventory` VALUES (6, 100, 2, 1, 6);
+
+-- ----------------------------
 -- Table structure for data_access_brand
 -- ----------------------------
 DROP TABLE IF EXISTS `data_access_brand`;
@@ -242,13 +287,14 @@ CREATE TABLE `data_access_brand`  (
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of data_access_brand
 -- ----------------------------
 INSERT INTO `data_access_brand` VALUES (1, 'test_brand_1', '');
 INSERT INTO `data_access_brand` VALUES (2, 'test_brand_2', '');
+INSERT INTO `data_access_brand` VALUES (3, 'test_brand_3', '');
 
 -- ----------------------------
 -- Table structure for data_access_category
@@ -268,6 +314,23 @@ INSERT INTO `data_access_category` VALUES (2, 'test_category_2');
 INSERT INTO `data_access_category` VALUES (3, 'test_category_3');
 
 -- ----------------------------
+-- Table structure for data_access_color
+-- ----------------------------
+DROP TABLE IF EXISTS `data_access_color`;
+CREATE TABLE `data_access_color`  (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of data_access_color
+-- ----------------------------
+INSERT INTO `data_access_color` VALUES (1, 'Blue');
+INSERT INTO `data_access_color` VALUES (2, 'Red');
+INSERT INTO `data_access_color` VALUES (3, 'Green');
+
+-- ----------------------------
 -- Table structure for data_access_product
 -- ----------------------------
 DROP TABLE IF EXISTS `data_access_product`;
@@ -278,7 +341,6 @@ CREATE TABLE `data_access_product`  (
   `price` decimal(10, 2) NOT NULL,
   `brand_id` bigint NOT NULL,
   `category_id` bigint NOT NULL,
-  `inventory` int NOT NULL,
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `data_access_product_brand_id_99f569a1_fk_data_access_brand_id`(`brand_id` ASC) USING BTREE,
@@ -290,11 +352,31 @@ CREATE TABLE `data_access_product`  (
 -- ----------------------------
 -- Records of data_access_product
 -- ----------------------------
-INSERT INTO `data_access_product` VALUES (1, 'test_product_1', 'test_description', 10.24, 1, 2, 100, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1150px-React-icon.svg.png');
-INSERT INTO `data_access_product` VALUES (2, 'test_product_2', 'test_description', 10.24, 1, 1, 100, 'https://vuejs.org/images/logo.png');
-INSERT INTO `data_access_product` VALUES (3, 'test_product_3', 'test_description', 10.24, 1, 1, 100, 'https://static-00.iconduck.com/assets.00/file-type-angular-icon-1907x2048-tobdkjt1.png');
-INSERT INTO `data_access_product` VALUES (4, 'test_product_4', 'test_description', 10.24, 1, 3, 100, 'https://gitlab.com/uploads/-/system/project/avatar/31295677/pngwing.com__1_.png');
-INSERT INTO `data_access_product` VALUES (5, 'test_product_5', 'test_description', 10.24, 1, 1, 100, 'https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-spring-boot-dashboard/0.13.2023072200/1689984300042/Microsoft.VisualStudio.Services.Icons.Default');
+INSERT INTO `data_access_product` VALUES (1, 'test_product_1', 'test_description', 10.25, 2, 2, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1150px-React-icon.svg.png');
+INSERT INTO `data_access_product` VALUES (2, 'test_product_2', 'test_description', 10.24, 3, 1, 'https://vuejs.org/images/logo.png');
+INSERT INTO `data_access_product` VALUES (3, 'test_product_3', 'test_description', 10.26, 2, 1, 'https://static-00.iconduck.com/assets.00/file-type-angular-icon-1907x2048-tobdkjt1.png');
+INSERT INTO `data_access_product` VALUES (4, 'test_product_4', 'test_description', 10.24, 1, 3, 'https://gitlab.com/uploads/-/system/project/avatar/31295677/pngwing.com__1_.png');
+INSERT INTO `data_access_product` VALUES (5, 'test_product_5', 'test_description', 10.24, 1, 1, 'https://vscjava.gallerycdn.vsassets.io/extensions/vscjava/vscode-spring-boot-dashboard/0.13.2023072200/1689984300042/Microsoft.VisualStudio.Services.Icons.Default');
+
+-- ----------------------------
+-- Table structure for data_access_size
+-- ----------------------------
+DROP TABLE IF EXISTS `data_access_size`;
+CREATE TABLE `data_access_size`  (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of data_access_size
+-- ----------------------------
+INSERT INTO `data_access_size` VALUES (1, '5');
+INSERT INTO `data_access_size` VALUES (2, '5.5');
+INSERT INTO `data_access_size` VALUES (3, '6');
+INSERT INTO `data_access_size` VALUES (4, '6.5');
+INSERT INTO `data_access_size` VALUES (5, '7');
+INSERT INTO `data_access_size` VALUES (6, '7 Wide');
 
 -- ----------------------------
 -- Table structure for django_admin_log
@@ -315,7 +397,7 @@ CREATE TABLE `django_admin_log`  (
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `django_admin_log_chk_1` CHECK (`action_flag` >= 0)
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of django_admin_log
@@ -342,6 +424,21 @@ INSERT INTO `django_admin_log` VALUES (19, '2023-10-30 14:36:02.022424', '1', 't
 INSERT INTO `django_admin_log` VALUES (20, '2023-11-04 22:05:37.376774', '9', 'test_user', 1, '[{\"added\": {}}]', 4, 1);
 INSERT INTO `django_admin_log` VALUES (21, '2023-11-04 22:05:43.550791', '9', 'test_user', 2, '[{\"changed\": {\"fields\": [\"Groups\"]}}]', 4, 1);
 INSERT INTO `django_admin_log` VALUES (22, '2023-11-25 18:05:43.823461', '7', 'js288c', 1, '[{\"added\": {}}, {\"added\": {\"name\": \"cart item\", \"object\": \"product\"}}]', 16, 1);
+INSERT INTO `django_admin_log` VALUES (23, '2023-12-10 02:03:09.389053', '1', 'Blue', 1, '[{\"added\": {}}]', 18, 1);
+INSERT INTO `django_admin_log` VALUES (24, '2023-12-10 02:03:14.106511', '2', 'Red', 1, '[{\"added\": {}}]', 18, 1);
+INSERT INTO `django_admin_log` VALUES (25, '2023-12-10 02:03:18.314768', '3', 'Green', 1, '[{\"added\": {}}]', 18, 1);
+INSERT INTO `django_admin_log` VALUES (26, '2023-12-10 02:04:47.113241', '1', '5', 1, '[{\"added\": {}}]', 19, 1);
+INSERT INTO `django_admin_log` VALUES (27, '2023-12-10 02:04:51.671868', '2', '5.5', 1, '[{\"added\": {}}]', 19, 1);
+INSERT INTO `django_admin_log` VALUES (28, '2023-12-10 02:04:59.147377', '3', '6', 1, '[{\"added\": {}}]', 19, 1);
+INSERT INTO `django_admin_log` VALUES (29, '2023-12-10 02:05:06.174476', '4', '6.5', 1, '[{\"added\": {}}]', 19, 1);
+INSERT INTO `django_admin_log` VALUES (30, '2023-12-10 02:05:09.514635', '5', '7', 1, '[{\"added\": {}}]', 19, 1);
+INSERT INTO `django_admin_log` VALUES (31, '2023-12-10 02:05:16.586506', '6', '7 Wide', 1, '[{\"added\": {}}]', 19, 1);
+INSERT INTO `django_admin_log` VALUES (32, '2023-12-10 02:10:17.236696', '1', 'Inventory object (1)', 1, '[{\"added\": {}}]', 21, 1);
+INSERT INTO `django_admin_log` VALUES (33, '2023-12-10 02:11:48.256671', '2', 'Inventory object (2)', 1, '[{\"added\": {}}]', 21, 1);
+INSERT INTO `django_admin_log` VALUES (34, '2023-12-10 02:13:28.686317', '3', 'Inventory object (3)', 1, '[{\"added\": {}}]', 21, 1);
+INSERT INTO `django_admin_log` VALUES (35, '2023-12-10 02:20:13.971531', '4', 'Inventory object (4)', 1, '[{\"added\": {}}]', 21, 1);
+INSERT INTO `django_admin_log` VALUES (36, '2023-12-10 02:20:22.406269', '5', 'Inventory object (5)', 1, '[{\"added\": {}}]', 21, 1);
+INSERT INTO `django_admin_log` VALUES (37, '2023-12-10 02:59:30.232001', '6', 'Inventory object (6)', 1, '[{\"added\": {}}]', 21, 1);
 
 -- ----------------------------
 -- Table structure for django_content_type
@@ -353,7 +450,7 @@ CREATE TABLE `django_content_type`  (
   `model` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `django_content_type_app_label_model_76bd3d3b_uniq`(`app_label` ASC, `model` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of django_content_type
@@ -364,10 +461,14 @@ INSERT INTO `django_content_type` VALUES (2, 'auth', 'permission');
 INSERT INTO `django_content_type` VALUES (4, 'auth', 'user');
 INSERT INTO `django_content_type` VALUES (7, 'authtoken', 'token');
 INSERT INTO `django_content_type` VALUES (8, 'authtoken', 'tokenproxy');
+INSERT INTO `django_content_type` VALUES (21, 'catalog', 'inventory');
 INSERT INTO `django_content_type` VALUES (5, 'contenttypes', 'contenttype');
 INSERT INTO `django_content_type` VALUES (9, 'data_access', 'brand');
 INSERT INTO `django_content_type` VALUES (10, 'data_access', 'category');
+INSERT INTO `django_content_type` VALUES (18, 'data_access', 'color');
+INSERT INTO `django_content_type` VALUES (20, 'data_access', 'inventory');
 INSERT INTO `django_content_type` VALUES (13, 'data_access', 'product');
+INSERT INTO `django_content_type` VALUES (19, 'data_access', 'size');
 INSERT INTO `django_content_type` VALUES (11, 'identity', 'administrator');
 INSERT INTO `django_content_type` VALUES (12, 'identity', 'customer');
 INSERT INTO `django_content_type` VALUES (14, 'ordering', 'order');
@@ -386,7 +487,7 @@ CREATE TABLE `django_migrations`  (
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of django_migrations
@@ -425,6 +526,11 @@ INSERT INTO `django_migrations` VALUES (31, 'ordering', '0003_order_status', '20
 INSERT INTO `django_migrations` VALUES (32, 'data_access', '0005_product_image_url', '2023-11-25 23:21:15.931318');
 INSERT INTO `django_migrations` VALUES (33, 'data_access', '0006_rename_image_url_product_image', '2023-11-26 00:08:16.456304');
 INSERT INTO `django_migrations` VALUES (34, 'ordering', '0002_order_address_1_order_address_2_order_city_and_more', '2023-12-08 21:26:58.355338');
+INSERT INTO `django_migrations` VALUES (35, 'data_access', '0002_color_size_remove_product_inventory_inventory', '2023-12-10 02:01:12.123009');
+INSERT INTO `django_migrations` VALUES (36, 'data_access', '0003_rename_color_id_inventory_color_and_more', '2023-12-10 02:01:54.196665');
+INSERT INTO `django_migrations` VALUES (37, 'data_access', '0004_delete_inventory', '2023-12-10 02:08:55.142318');
+INSERT INTO `django_migrations` VALUES (38, 'catalog', '0001_initial', '2023-12-10 02:08:56.121673');
+INSERT INTO `django_migrations` VALUES (39, 'catalog', '0002_alter_inventory_unique_together', '2023-12-10 02:13:03.859564');
 
 -- ----------------------------
 -- Table structure for django_session
@@ -449,6 +555,7 @@ INSERT INTO `django_session` VALUES ('gfxpzji35fhqxqhpe69akl24d5s6s6wk', '.eJxVj
 INSERT INTO `django_session` VALUES ('gmyj5ak95qq1558m55nfg96vy0bcq71h', '.eJxVjEEOwiAQRe_C2pBC6VBduvcMZGZgpGogKe3KeHfbpAvd_vfef6uA65LD2tIcpqguyqjT70bIz1R2EB9Y7lVzLcs8kd4VfdCmbzWm1_Vw_w4ytrzVePYDgQxg2GLksUvSi2OyBg11CAnAO8vkI_eb2rMAS_JudERRHKnPF_7-OPE:1r3KlA:6DQ1uulptici9KOoaD8bu3Zrje1gCngyJ484zm8lzag', '2023-11-29 18:37:08.031665');
 INSERT INTO `django_session` VALUES ('qkhu7c38owwhma0pytcvvmp64ga67im4', '.eJxVjD0OwyAUg-_CXCF-HgE6ds8ZEDygpK1ACslU9e4NUoZ2sSx_tt_E-X0rbu9pdUskV8LJ5TcLHp-pDhAfvt4bxVa3dQl0VOhJO51bTK_b2f07KL6XsfZZMWvRCIHaGAYcWeJZCJVsiOCnSbLDMtBKQwZpEkcU-hCulTRAPl_Mjjbo:1qxF3Y:lDPdtOHdF2W8R-4PWjRw1CfX-N8ajBDeHNCqK2j4WiI', '2023-11-12 23:18:56.906549');
 INSERT INTO `django_session` VALUES ('qovrewrw9i1de7j96f44767ywbbv01ha', '.eJxVjMEOwiAQRP-FsyHFXSj16N1vIEt3kaqBpLQn47_bJj3obTLvzbxVoHXJYW0yh4nVRRmjTr9lpPEpZSf8oHKveqxlmaeod0UftOlbZXldD_fvIFPL21pYkMgx2YiDt4aSG2AAJHQevJyNT5YjYOoJtuxGQGQnmGwnfYegPl8TeDfj:1r2c7p:Ve9zbjeI90JW9HUQAdlo26Izd0MZBYrEe6tBLLDW0vg', '2023-11-27 18:57:33.070914');
+INSERT INTO `django_session` VALUES ('tj5jmjrm2eza95oc0sfuz5md2912hgcj', '.eJxVjEEOwiAQRe_C2pBC6VBduvcMZGZgpGogKe3KeHfbpAvd_vfef6uA65LD2tIcpqguyqjT70bIz1R2EB9Y7lVzLcs8kd4VfdCmbzWm1_Vw_w4ytrzVePYDgQxg2GLksUvSi2OyBg11CAnAO8vkI_eb2rMAS_JudERRHKnPF_7-OPE:1rCB7y:P5itP1uvwcADUHyE9IbBVWMeJH2I3Tsb5AHoZ-8kz_U', '2023-12-24 04:09:14.293322');
 INSERT INTO `django_session` VALUES ('xfsu8qqtn8wsiy288diuhj7nqlr7yebh', '.eJxVjEEOwiAQRe_C2pBC6VBduvcMZGZgpGogKe3KeHfbpAvd_vfef6uA65LD2tIcpqguyqjT70bIz1R2EB9Y7lVzLcs8kd4VfdCmbzWm1_Vw_w4ytrzVePYDgQxg2GLksUvSi2OyBg11CAnAO8vkI_eb2rMAS_JudERRHKnPF_7-OPE:1r38YG:A6NQmuAjC8_MQqj5jYKDFE2kxkvUlc3bGli-a-Rrqd4', '2023-11-29 05:35:00.461903');
 
 -- ----------------------------
@@ -474,20 +581,13 @@ CREATE TABLE `ordering_order`  (
   INDEX `ordering_order_customer_id_db5570b3_fk_auth_user_id`(`customer_id` ASC) USING BTREE,
   INDEX `ordering_order_date_69350568`(`date` ASC) USING BTREE,
   CONSTRAINT `ordering_order_customer_id_db5570b3_fk_auth_user_id` FOREIGN KEY (`customer_id`) REFERENCES `auth_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ordering_order
 -- ----------------------------
-INSERT INTO `ordering_order` VALUES (1, 0.00, '2023-11-04', 1, 'processing', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ordering_order` VALUES (2, 0.00, '2023-11-04', 1, 'processing', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ordering_order` VALUES (3, 0.00, '2023-11-13', 9, 'processing', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ordering_order` VALUES (4, 0.00, '2023-11-13', 11, 'processing', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ordering_order` VALUES (8, 71.68, '2023-11-26', 1, 'processing', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ordering_order` VALUES (9, 10.24, '2023-11-26', 1, 'processing', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ordering_order` VALUES (10, 117.76, '2023-11-28', 1, 'processing', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ordering_order` VALUES (11, 35.33, '2023-12-08', 1, 'processing', '', '', '', '', '', '', '', '', '');
-INSERT INTO `ordering_order` VALUES (12, 11.78, '2023-12-08', 1, 'processing', 'adfs', 'asfd', 'afsd', 'aaff', 'fda', 'Debit Card', 'dafs', 'fads', 'NL');
+INSERT INTO `ordering_order` VALUES (13, 0.00, '2023-12-09', 1, 'processing', 'aa', 'aa', 'dfas', 'dsaf', 'afsd', 'dfsa', 'asdf', 'asdf', 'OO');
+INSERT INTO `ordering_order` VALUES (14, 0.00, '2023-12-09', 1, 'processing', 'aa', 'aa', 'aa', 'aa', 'aa', 'aa', 'aa', 'aa', 'OO');
 
 -- ----------------------------
 -- Table structure for ordering_orderitem
@@ -496,31 +596,20 @@ DROP TABLE IF EXISTS `ordering_orderitem`;
 CREATE TABLE `ordering_orderitem`  (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `quantity` int NOT NULL,
-  `product_id` bigint NOT NULL,
+  `inventory_id` bigint NOT NULL,
   `order_id` bigint NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
+  INDEX `ordering_orderitem_inventory_id_452852de_fk_catalog_inventory_id`(`inventory_id` ASC) USING BTREE,
   INDEX `ordering_orderitem_order_id_050e4dc5_fk_ordering_order_id`(`order_id` ASC) USING BTREE,
-  INDEX `ordering_orderitem_product_id_174724c2_fk_data_access_product_id`(`product_id` ASC) USING BTREE,
-  CONSTRAINT `ordering_orderitem_order_id_050e4dc5_fk_ordering_order_id` FOREIGN KEY (`order_id`) REFERENCES `ordering_order` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `ordering_orderitem_product_id_174724c2_fk_data_access_product_id` FOREIGN KEY (`product_id`) REFERENCES `data_access_product` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  CONSTRAINT `ordering_orderitem_ibfk_1` FOREIGN KEY (`inventory_id`) REFERENCES `catalog_inventory` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `ordering_orderitem_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `ordering_order` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ordering_orderitem
 -- ----------------------------
-INSERT INTO `ordering_orderitem` VALUES (1, 1, 1, 1);
-INSERT INTO `ordering_orderitem` VALUES (2, 2, 1, 2);
-INSERT INTO `ordering_orderitem` VALUES (4, 2, 1, 8);
-INSERT INTO `ordering_orderitem` VALUES (5, 1, 2, 8);
-INSERT INTO `ordering_orderitem` VALUES (6, 2, 3, 8);
-INSERT INTO `ordering_orderitem` VALUES (7, 2, 4, 8);
-INSERT INTO `ordering_orderitem` VALUES (8, 1, 1, 9);
-INSERT INTO `ordering_orderitem` VALUES (9, 4, 1, 10);
-INSERT INTO `ordering_orderitem` VALUES (10, 2, 2, 10);
-INSERT INTO `ordering_orderitem` VALUES (11, 4, 3, 10);
-INSERT INTO `ordering_orderitem` VALUES (12, 2, 1, 11);
-INSERT INTO `ordering_orderitem` VALUES (13, 1, 2, 11);
-INSERT INTO `ordering_orderitem` VALUES (14, 1, 2, 12);
+INSERT INTO `ordering_orderitem` VALUES (1, 1, 1, 13);
+INSERT INTO `ordering_orderitem` VALUES (2, 1, 2, 13);
 
 -- ----------------------------
 -- Table structure for shopping_cart_cart
@@ -536,7 +625,7 @@ CREATE TABLE `shopping_cart_cart`  (
 -- ----------------------------
 -- Records of shopping_cart_cart
 -- ----------------------------
-INSERT INTO `shopping_cart_cart` VALUES (1, 10.24);
+INSERT INTO `shopping_cart_cart` VALUES (1, 0.00);
 INSERT INTO `shopping_cart_cart` VALUES (6, 0.00);
 INSERT INTO `shopping_cart_cart` VALUES (7, 0.00);
 
@@ -548,18 +637,17 @@ CREATE TABLE `shopping_cart_cartitem`  (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `quantity` int NOT NULL,
   `cart_id` int NOT NULL,
-  `product_id` bigint NOT NULL,
+  `inventory_id` bigint NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `shopping_cart_cartit_cart_id_adaf8330_fk_shopping_`(`cart_id` ASC) USING BTREE,
-  INDEX `shopping_cart_cartit_product_id_327be483_fk_data_acce`(`product_id` ASC) USING BTREE,
-  CONSTRAINT `shopping_cart_cartit_cart_id_adaf8330_fk_shopping_` FOREIGN KEY (`cart_id`) REFERENCES `shopping_cart_cart` (`customer_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `shopping_cart_cartit_product_id_327be483_fk_data_acce` FOREIGN KEY (`product_id`) REFERENCES `data_access_product` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+  INDEX `shopping_cart_cartit_inventory_id_d1a64bb4_fk_catalog_i`(`inventory_id` ASC) USING BTREE,
+  CONSTRAINT `shopping_cart_cartitem_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `shopping_cart_cart` (`customer_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `shopping_cart_cartitem_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `catalog_inventory` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of shopping_cart_cartitem
 -- ----------------------------
-INSERT INTO `shopping_cart_cartitem` VALUES (19, 1, 7, 1);
-INSERT INTO `shopping_cart_cartitem` VALUES (33, 1, 1, 2);
+INSERT INTO `shopping_cart_cartitem` VALUES (1, 1, 1, 1);
 
 SET FOREIGN_KEY_CHECKS = 1;

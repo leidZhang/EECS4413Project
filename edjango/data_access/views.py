@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework import generics, filters
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -37,6 +36,6 @@ class ProductView(generics.ListCreateAPIView):
     # permission_classes = [permissions.IsAuthenticated, IsAdminOrReadOnly]
 
 
-class SingleProductSerializer(generics.RetrieveUpdateAPIView):
+class SingleProductView(generics.RetrieveUpdateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
