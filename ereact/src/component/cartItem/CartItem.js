@@ -19,7 +19,7 @@ const OrderItem = ({ data, reRender }) => {
             quantity: qty,
         };
 
-        axios.put(`/api/shopping-cart/cart/products/${id}`, cartItem).then(res => {
+        axios.put(`/api/shopping-cart/cart/items/${id}`, cartItem).then(res => {
             console.log(res.data);
             reRender();
         }).catch(error => {
@@ -31,7 +31,7 @@ const OrderItem = ({ data, reRender }) => {
         // delete the item
         event.preventDefault();
 
-        axios.delete(`/api/shopping-cart/cart/products/${id}`).then(res => {
+        axios.delete(`/api/shopping-cart/cart/items/${id}`).then(res => {
             console.log(res.data);
             reRender();
         }).catch(error => {

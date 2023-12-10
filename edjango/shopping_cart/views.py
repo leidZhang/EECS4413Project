@@ -28,12 +28,12 @@ class CartItemView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         # Set the cart field before saving the instance
         user = self.request.user  # cart_id is user_id
-        product_id = self.request.data.get('product_id')
+        inventory_id = self.request.data.get('inventory_id')
         quantity = self.request.data.get('quantity')
         cart = Cart.objects.get(customer_id=user.id)
 
         # Check if the item already exists in the cart
-        existing_item = CartItem.objects.filter(cart=user.id, product=product_id).first()
+        existing_item = CartItem.objects.filter(cart=user.id, inventory=inventory_id).first()
 
         if existing_item:
             # If the item exists, update the quantity
