@@ -19,7 +19,7 @@ const CartItemList = ({ onItemList }) => {
 
     const renderCart = () => {
         axios.get(`api/shopping-cart/cart/items`).then(res => {
-            const data = res.data
+            const data = res.data;
             setItemList(data);
             onItemList(data);
         }).catch(error => {
