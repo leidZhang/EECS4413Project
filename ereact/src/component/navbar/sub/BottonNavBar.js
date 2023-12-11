@@ -5,6 +5,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
+
 const BottomNavBar = () => {
     const navigate = useNavigate();
     const [categories, setCategories] = useState(null);

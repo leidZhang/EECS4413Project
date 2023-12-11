@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import Slider from "../../component/HomeSlider/Slider";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -19,3 +19,4 @@ export default function Product(props) {
     );
   }
 
+*/

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Card, CardImg, CardSubtitle} from "react-bootstrap";
+import {Card, CardImg, CardSubtitle, Col, Row} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 import "./ProductCard.css"
 
@@ -11,16 +11,22 @@ const ProductCard = ({ data }) => {
     }
 
     return (
-        <Card id="product-card-content" onClick={() => handleNavigate()}>
+        <Col xs={12} sm={6} md={4} lg={3} xl={3} className="mb-4">
+          <Card id="product-card-content" onClick={() => handleNavigate()} className="box">
             <div className="product-card-img-container">
-                <CardImg id="product-card-img" src={data?.image} alt={data?.title}/>
+              <CardImg id="product-card-img" src={data?.image} alt={data?.title} />
             </div>
-            <Card.Body style={{padding: "0px"}}>
-                <CardSubtitle id="product-card-title">{data?.title}</CardSubtitle>
-                <Card.Text style={{margin: "5px"}}>${data?.price}</Card.Text>
+            <Card.Body style={{ padding: "0px" }}>
+              <CardSubtitle id="product-card-title">{data?.title}</CardSubtitle>
+              <Card.Text id="product-card-price" style={{ margin: "5px" }}>
+                ${data?.price}
+              </Card.Text>
             </Card.Body>
-        </Card>
-    );
+          </Card>
+        </Col>
+      );
+    
 };
+
 
 export default ProductCard;

@@ -48,22 +48,26 @@ const ProductDetail = () => { // prototype detail page
     }
 
     return (
+        <body className="body">
         <div id="product-container" >
+           
             <img src={img} className="product-detail-img" />
-            <p>This is the page for { id } product's details</p>
-            <p>Title: { title } </p>
-            <p>Description: { description } </p>
-            <p>Price: { price }</p>
-            <p>Category: { category }</p>
-            <p>Brand: { brand }</p>
-            <p>QTY</p>
-            <input type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
-            <div id="button-container">
-                <Button className="form-button" variant="primary" onClick={handleAddToCart}>
-                    Add to Cart
-                </Button>
-            </div>
+           
+            <p id ="product-id">This is the page for { id } product's details</p>
+            <p id ="product-title" > { title } </p>
+            <p id ="product-Description" >{ description } </p>
+            <p id ="product-Price" >${ price }</p>
+            <p id ="product-Category">Men { category }</p>
+            <p id ="product-Brand" >Air Max { brand }</p>
+            <p id ="product-Qty">QTY: <input size="2" type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
+            </p>
+            
+            <Button id="button-container" className="form-button" variant="primary" onClick={handleAddToCart}>
+                Add to Cart
+            </Button>
+            
         </div>
+        </body>
     )
 }
 

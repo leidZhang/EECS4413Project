@@ -1,7 +1,62 @@
+.bg-body-tertiary{
+    background-color: rgba(131,151,136,0.9);
+}
+
 .nav-bar-component {
     margin-left: 20px;
+    font-family: sans-serif;
+    font-size: 100%;
+    font-style: italic; 
 }
 
 #order-link {
     margin-right: 20px;
+}
+
+.search{
+    font-family: sans-serif;
+    font-size: 10%;
+    text-align: center;
+    font-style: italic;
+    background-color: rgba(131,151,136,0.3);
+}
+
+#button-addon2{
+    font-family: sans-serif;
+    font-size: 100%;
+    text-align: center;
+    font-style: italic;  
+    background-color: rgba(131,151,136,0.3);
+}
+
+#button-addon2:hover, #all:hover, #search-input:hover{
+    background-color: rgba(115,135,123,0.7);
+}
+
+#search-input{
+    background-color: rgba(115,135,123,0.3);
+    font-family: sans-serif;
+    font-size: 100%;
+    text-align: left;
+    font-style: italic; 
+}
+#all{
+    background-color: rgba(115,135,123,0.3);
+    font-family: sans-serif;
+    font-size: 100%;
+    text-align: left;
+    font-style: italic; 
+}
+#cart, #order-link, #overlay-trigger{
+    font-family: sans-serif;
+    font-size: 100%;
+    text-align: center;
+    font-style: italic;  
+    background-color: rgba(115,135,123,0.3);
+}
+.me-auto{
+    background-color: rgba(115,135,123,0.3);
+}
+.me-auto:hover{
+    background-color: rgba(115,135,123,0.7);
 }
