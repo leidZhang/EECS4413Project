@@ -17,14 +17,14 @@
 #button-container {
     font-family: sans-serif;
     float: left;
-    margin-left:10%;  
+    margin-left:10%;
 }
 
 .product-detail-img {
     width: 33%;
     height: auto;
     float: right;
-    margin-right:10%; 
+    margin-right:10%;
 }
 
 #product-title{
@@ -49,7 +49,6 @@
     margin-left: 10%;
     margin-top:7%;
     margin-bottom: 7%;
-   
 }
 
 #product-Price{

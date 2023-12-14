@@ -7,68 +7,122 @@ import Button from "react-bootstrap/Button";
 const ProductDetail = () => { // prototype detail page
     const navigate = useNavigate();
     const { id } = useParams();
-    const [description, setDescription] = useState('');
-    const [img, setImg] = useState('');
-    const [price, setPrice] = useState('');
-    const [title, setTitle] = useState('');
-    const [brand, setBrand] = useState('');
-    const [category, setCategory] = useState('');
+
+    const [product, setProduct] = useState(null);
     const [quantity, setQuantity] = useState(1);
+    const [colors, setColors] = useState(null);
+    const [sizes, setSizes] = useState(null);
+    const [inventories, setInventories] = useState([]);
+    const [selectedColor, setSelectedColor] = useState('');
+    const [selectedSize, setSelectedSize] = useState('');
 
     useEffect(() => {
+        handleProductInfo();
+        handleOptions();
+    }, []);
+
+    const handleUniqueValues = (data, key) => {
+        let res = new Set();
+        for (let i in data) {
+            if (!res.has(data[i][key]["title"])) {
+                res.add(data[i][key]["title"]);
+            }
+        }
+        return res
+    };
+
+    const handleOptions = () => {
+        axios.get(`api/catalog/inventory/${id}`).then(res => {
+            const data = res.data;
+
+            setInventories(handleInventories(data));
+            setColors(handleUniqueValues(data, "color"));
+            setSizes(handleUniqueValues(data, "size"));
+        }).catch(error => {
+            console.log(error);
+        });
+    };
+
+    const handleInventories = (data) => {
+        let res = {};
+        for (let i in data) {
+            const color = data[i]["color"]["title"];
+            const size = data[i]["size"]["title"];
+
+            const key = color + "-" + size;
+            res[key] = data[i]["id"];
+        }
+        return res;
+    };
+
+    const handleProductInfo = () => {
         axios.get(`api/data-access/products/${id}`).then(res => {
             const data = res.data;
             console.log(data);
 
-            setTitle(data['title']);
-            setPrice(data['price']);
-            setDescription(data['description']);
-            setCategory(data['category']);
-            setBrand(data['brand']);
-            setImg(data['image']);
+            setProduct(data);
         }).catch(error => {
             console.log(error);
             navigate('/404');
-        })
-    });
+        });
+    };
 
-    const handleAddToCart = (event) => {
-        console.log("button clicked");
+    const handleAvailableSize = (color) => {
+        const newSizes = [];
 
-        const data = {
-            product_id: id,
+        for (let key in inventories) {
+            const keyInfo = key.split("-");
+            if (color === keyInfo[0]) {
+                newSizes.push(keyInfo[1]);
+            }
+        }
+
+        setSizes(newSizes);
+        setSelectedColor(color);
+    }
+
+    const handleAddToCart = () => {
+        const key = selectedColor + '-' + selectedSize;
+        const inventory = inventories[key];
+
+        const data = { // implementing
+            inventory_id: inventory,
             quantity: quantity,
         }
 
-        axios.post(`http://localhost:8000/api/shopping-cart/cart/products`, data).then(res => {
-            console.log('Add to Checkout!');
+        axios.post(`http://localhost:8000/api/shopping-cart/cart/items`, data).then(res => {
+            console.log(res.data);
         }).catch(error => {
             console.log(error);
         })
     }
 
     return (
-        <body className="body">
+      <body className="body">
         <div id="product-container" >
-           
-            <img src={img} className="product-detail-img" />
-           
-            <p id ="product-id">This is the page for { id } product's details</p>
-            <p id ="product-title" > { title } </p>
-            <p id ="product-Description" >{ description } </p>
-            <p id ="product-Price" >${ price }</p>
-            <p id ="product-Category">Men { category }</p>
-            <p id ="product-Brand" >Air Max { brand }</p>
-            <p id ="product-Qty">QTY: <input size="2" type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
-            </p>
-            
-            <Button id="button-container" className="form-button" variant="primary" onClick={handleAddToCart}>
-                Add to Cart
-            </Button>
-            
+            <img src={ product?.image } className="product-detail-img" alt={product?.title}/>
+            <p>This is the page for { product?.id } product's details</p>
+            <p>Title: { product?.title } </p>
+            <p>Description: { product?.description } </p>
+            <p>Price: { product?.price }</p>
+            <p>Category: { product?.category }</p>
+            <p>Brand: { product?.brand.title }</p>
+            {colors && Array.from(colors).map(color => (
+                <p key={color}><input type="radio" name="color" value={color} onChange={(e) => handleAvailableSize(e.target.value)} />{color}</p>
+            ))}
+            {selectedColor && sizes && Array.from(sizes).map(size => (
+                <p key={size}><input type="radio" name="size" value={size} onChange={(e) => setSelectedSize(e.target.value)} />{size}</p>
+            ))}
+            <p>QTY</p>
+            <input type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
+            <div id="button-container">
+                <Button className="form-button" variant="primary" onClick={handleAddToCart}>
+                    Add to Cart
+                </Button>
+            </div>
         </div>
-        </body>
-    )
+    </body>
+    );
 }
 
 export default ProductDetail;

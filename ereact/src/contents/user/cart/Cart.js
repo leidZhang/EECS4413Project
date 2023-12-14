@@ -15,7 +15,8 @@ const Cart = () => {
     }
 
     const handleListSize = (listItem) => {
-        setListSize(listItem.length)
+        console.log(listItem);
+        setListSize(listItem.length);
     }
 
     return (

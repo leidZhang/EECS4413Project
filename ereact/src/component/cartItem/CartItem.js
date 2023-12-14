@@ -7,7 +7,7 @@ import axios from "axios";
 const OrderItem = ({ data, reRender }) => {
     const navigate = useNavigate();
     // data received from parent component
-    const {id, product, quantity} = data;
+    const {inventory, quantity} = data;
     const [qty, setQty] = useState(quantity);
 
     const handleUpdate = (event) => {
@@ -15,11 +15,11 @@ const OrderItem = ({ data, reRender }) => {
         event.preventDefault();
 
         const cartItem = {
-            product_id: product.id,
+            inventory_id: inventory.id,
             quantity: qty,
         };
 
-        axios.put(`/api/shopping-cart/cart/products/${id}`, cartItem).then(res => {
+        axios.put(`/api/shopping-cart/cart/items/${inventory.id}`, cartItem).then(res => {
             console.log(res.data);
             reRender();
         }).catch(error => {
@@ -31,7 +31,7 @@ const OrderItem = ({ data, reRender }) => {
         // delete the item
         event.preventDefault();
 
-        axios.delete(`/api/shopping-cart/cart/products/${id}`).then(res => {
+        axios.delete(`/api/shopping-cart/cart/items/${inventory.id}`).then(res => {
             console.log(res.data);
             reRender();
         }).catch(error => {
@@ -44,18 +44,21 @@ const OrderItem = ({ data, reRender }) => {
     }
 
     const handleNavigate = () => {
-        navigate(`/product/${product.id}`);
+        navigate(`/product/${inventory.product.id}`);
     }
 
     return (
         <ListGroupItem id="cart-item">
-            <CardImg className="cart-item-img" src={product.image} />
+            <CardImg className="cart-item-img" src={inventory.product.image} />
             <CardBody className="cart-item-text-container">
                 <CardSubtitle id="cart-item-title" onClick={() => handleNavigate()}>
-                    {product.title}
+                    {inventory.product.title}
                 </CardSubtitle>
                 <CardText className="cart-item-text">
-                    Price: ${product.price}
+                    Price: ${inventory.product.price}
+                </CardText>
+                <CardText className="cart-item-text">
+                    Color: {inventory.color.title} | Size: {inventory.size.title}
                 </CardText>
                 <CardText className="cart-item-text">
                     Qty:&nbsp;
