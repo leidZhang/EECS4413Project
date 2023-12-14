@@ -1,12 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
+import "../../component/HomeProductCarousel/ProductSlider.css";
+import Slider from "../../component/HomeSlider/Slider";
+import "react-multi-carousel/lib/styles.css";
 
 const Home = () => {
-    // implement home page
+  
     return (
-        <div>
-           Welcome to home page!
-       </div>
+    
+        <div className="caresoul"><Slider></Slider>
+             <h1>React multi carousel</h1>
+        </div>
+      
     );
-}
+  }
 
-export default Home;
+  export default Home;
