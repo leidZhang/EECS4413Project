@@ -98,25 +98,27 @@ const ProductDetail = () => { // prototype detail page
     }
 
     return (
-      <body className="body">
-        <div id="product-container" >
-            <img src={ product?.image } className="product-detail-img" alt={product?.title}/>
-            <p>This is the page for { product?.id } product's details</p>
-            <p>Title: { product?.title } </p>
-            <p>Description: { product?.description } </p>
-            <p>Price: { product?.price }</p>
-            <p>Category: { product?.category }</p>
-            <p>Brand: { product?.brand.title }</p>
+      <body id="body">
+       <div id="product-card-container">
+          <p id= "img"><img src={ product?.image } className="product-detail-img" alt={product?.title}/></p>
+            {/*  <p id="product-card-title">This is the page for { product?.id } product's details</p>*/}
+            <p id="product-card-title">{ product?.title } </p>
+            <p id="product-card-content">{ product?.description } </p>
+            <p id="product-card-price">Price: { product?.price }</p>
+            <p id="product-card-category">Category: { product?.category }</p>
+            <p id="product-card-brand">Brand: { product?.brand.title }</p>
+           
             {colors && Array.from(colors).map(color => (
-                <p key={color}><input type="radio" name="color" value={color} onChange={(e) => handleAvailableSize(e.target.value)} />{color}</p>
+                <p id="product-card-color" key={color}><input type="radio" name="color" value={color} onChange={(e) => handleAvailableSize(e.target.value)} />Color: {color}</p>
             ))}
             {selectedColor && sizes && Array.from(sizes).map(size => (
-                <p key={size}><input type="radio" name="size" value={size} onChange={(e) => setSelectedSize(e.target.value)} />{size}</p>
+                <p  id="product-card-size" key={size}><input type="radio" name="size" value={size} onChange={(e) => setSelectedSize(e.target.value)} />Size: {size}</p>
             ))}
-            <p>QTY</p>
-            <input type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
+            <p id="product-card-qty">QTY: 
+            <input id="qty-textbox" type="text" size="3" value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
+            </p>
             <div id="button-container">
-                <Button className="form-button" variant="primary" onClick={handleAddToCart}>
+                <Button id ="Button" className="form-button" variant="primary" onClick={handleAddToCart}>
                     Add to Cart
                 </Button>
             </div>
