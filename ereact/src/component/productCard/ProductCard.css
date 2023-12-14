@@ -1,4 +1,4 @@
-#product-card-container{
+html, body, #product-card-container{
     background-color: rgba(245,228,215,0.5);
     height: auto;
     width: auto;
