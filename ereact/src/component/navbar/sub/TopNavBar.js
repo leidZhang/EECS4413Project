@@ -77,7 +77,7 @@ const TopNavBar = () => {
     };
 
     return (
-        <Navbar className="bg-body-tertiary">
+        <Navbar className="navbar navbar-light" style={{backgroundColor: 'rgba(131,151,136,0.7)'}}>
             <Navbar.Brand id="brand" className="nav-bar-component" as={Link} to="/">
                 Nike
             </Navbar.Brand>
@@ -93,7 +93,7 @@ const TopNavBar = () => {
                             </DropdownItem>
                         ))}
                     </DropdownButton>
-                    <Form.Control id="search-input" size="5"
+                    <Form.Control id="search-input" size="15"
                         placeholder="Nike"
                         aria-label="Nike"
                         aria-describedby="basic-addon2"

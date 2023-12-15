@@ -23,7 +23,7 @@ const BottomNavBar = () => {
     }
 
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" className="navbar navbar-light" style={{backgroundColor: 'rgba(131,151,136,0.7)'}}>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse>
                 <Nav className="me-auto">
