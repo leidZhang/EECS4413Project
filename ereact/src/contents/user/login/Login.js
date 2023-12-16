@@ -35,8 +35,9 @@ const Login = () => {
     }
 
     return (
-        <div className="card-container">
-            <Card className="login-card">
+        <body id="body">
+            <div  className="login-header">
+            <Card className="login-card" style={{backgroundColor: 'rgba(229,209,208,0.5)'}}>
                 <h1 className="form-title">Log in</h1>
                 <Form className="form" onSubmit={ handleLogin }>
                     <Form.Group className="form-row" controlId="formBasicEmail">
@@ -60,18 +61,19 @@ const Login = () => {
                     <Breadcrumb id="register">
                         New customer?&nbsp;
                         <Breadcrumb.Item  onClick={ () => navigate('/register') }>
-                            Start here
+                            Register here
                         </Breadcrumb.Item>
                     </Breadcrumb>
                     {errorMessage && <div className="form-error-message">{errorMessage}</div>}
                     <div className="button-container">
-                        <Button className="form-button" variant="primary" type="submit">
+                        <Button id="button" className="form-button bg-dark" variant="primary" type="submit">
                             Submit
                         </Button>
                     </div>
                 </Form>
             </Card>
-        </div>
+            </div>
+        </body>
     );
 }
 

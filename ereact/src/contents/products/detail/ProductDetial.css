@@ -1,21 +1,12 @@
-.body{
-    background-color: rgba(245,228,215,0.3);
-    margin: 0;
-    padding: 0;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-}
 #product-container{
-    font-family: sans-serif;
+    background-color: rgba(249,241,234,1);
+    font-family: serif;
     max-height: auto;
     max-width: auto;
 }
-#button-container {
-    font-family: sans-serif;
+.form-button{
+    background-color: rgba(242,202,214,0.1);
+    font-family: serif;
     float: left;
     margin-left:10%;
 }
@@ -28,7 +19,7 @@
 }
 
 #product-title{
-    font-family: sans-serif;
+    font-family: serif;
     font-size: 180%;
     font-weight: bold;
     text-align: left;
@@ -36,7 +27,7 @@
 }
 
 #product-Qty{
-    font-family: sans-serif;
+    font-family: serif;
     font-size: 16px;
     text-align: left;
     margin-left: 10%;

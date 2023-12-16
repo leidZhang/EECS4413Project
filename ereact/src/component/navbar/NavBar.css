@@ -10,14 +10,9 @@
     margin-right: 20px;
 }
 
-#search input[type=text]{
+#search-input[type=text]{
     width: 30% !important;
-    font-family: serif;
-    font-size: 10%;
-    text-align: center;
-    font-style: italic;
-    background-color: rgba(189,187,182,0.7);
-    
+    background-color: rgba(189,187,182,0.7);   
 }
 
 #button-addon2{
