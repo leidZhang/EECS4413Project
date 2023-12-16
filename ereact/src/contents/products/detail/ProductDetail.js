@@ -99,7 +99,7 @@ const ProductDetail = () => { // prototype detail page
 
     return (
       <body id="body">
-       
+       <div className="product-detail-container">
             <p id= "img"><img src={ product?.image } className="product-detail-img" alt={product?.title}/></p>
             {/*  <p id="product-card-title">This is the page for { product?.id } product's details</p>*/}
             <p id="product-card-title">{ product?.title } </p>
@@ -117,11 +117,11 @@ const ProductDetail = () => { // prototype detail page
             <input id="qty-textbox" type="text" size="3" value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
             </p>
             <div id="button-container">
-                <Button className="form-button" variant="primary" onClick={handleAddToCart}>
+            <Button id ="button" className="form-button bg-dark" variant="primary" onClick={handleAddToCart}>
                     Add to Cart
                 </Button>
             </div>
-        
+        </div>
     </body>
     );
 }

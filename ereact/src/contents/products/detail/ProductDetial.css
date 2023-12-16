@@ -1,11 +1,12 @@
+
 #product-container{
     background-color: rgba(249,241,234,1);
     font-family: serif;
     max-height: auto;
     max-width: auto;
 }
-.form-button{
-    background-color: rgba(242,202,214,0.1);
+
+#button-container {
     font-family: serif;
     float: left;
     margin-left:10%;
@@ -59,3 +60,8 @@
     padding-left: 10%;
 }
 
+#button{
+    max-width: auto;
+    float: left;
+    margin-left: 10%;
+}
