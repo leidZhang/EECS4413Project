@@ -51,3 +51,9 @@
 #filter-button-container {
     text-align: left;
 }
+
+#result-card {
+    display: flex;
+    justify-content: left;
+    margin-left: 0px;
+}

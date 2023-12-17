@@ -20,7 +20,6 @@ const Cart = () => {
     }
 
     return (
-        <body id="body">
         <div className="card-container">
            <Card id="cart-card">
                 <Card.Title id="cart-card-title" className="card-title">Shopping Cart</Card.Title>
@@ -31,7 +30,6 @@ const Cart = () => {
                 </div>
             </Card> 
         </div>
-        </body>
     );
 };
 

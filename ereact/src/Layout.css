@@ -1,3 +1,9 @@
+.layout-container {
+    height: 100vh;
+    weight: 100vw;
+    background-color: rgba(245,228,215,0.5);
+}
+
 .card-container {
     display: flex;
     justify-content: center;
