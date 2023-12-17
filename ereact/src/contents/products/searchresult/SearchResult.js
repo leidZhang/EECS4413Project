@@ -120,12 +120,10 @@ const SearchResult = () => { // temp implementation for demonstrating ProductCar
                     />
                     <div className="button-container" id="filter-button-container">
                         <Button
-                            className="form-button"
                             id="filter-submit-button"
                             type="submit"
                         >Apply</Button>
                         <Button
-                            className="form-button"
                             id="filter-reset-button"
                             onClick={() => handleRest()}
                         >Reset</Button>

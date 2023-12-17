@@ -22,6 +22,10 @@ font-style: bold;
     font-style: bold;
 }
 */
+#product-card-price {
+    text-align: center;
+}
+
 #product-card-title{
     font-size: 150%;
     text-align: center;

@@ -18,7 +18,7 @@ const ProductCard = ({ data }) => {
             </div>
             <Card.Body style={{ padding: "0px" }}>
               <CardSubtitle id="product-card-title">{data?.title}</CardSubtitle>
-              <Card.Text id="product-card-price" style={{ margin: "5px" }}>
+              <Card.Text id="product-card-price" style={{ margin: "5px", textAlign: "center" }}>
                 ${data?.price}
               </Card.Text>
             </Card.Body>

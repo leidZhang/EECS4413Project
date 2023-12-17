@@ -94,7 +94,7 @@ const TopNavBar = () => {
                         ))}
                     </DropdownButton>
                     <Form.Control id="search-input" size="15"
-                        placeholder="Nike"
+                        placeholder="Search items in the website"
                         aria-label="Nike"
                         aria-describedby="basic-addon2"
                         value={query}
