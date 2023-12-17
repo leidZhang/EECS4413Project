@@ -12,20 +12,19 @@ const ProductCard = ({ data }) => {
 
     return (
         <Col xs={12} sm={6} md={4} lg={3} xl={3} className="mb-4">
-          <Card id="product-card-content" onClick={() => handleNavigate()} className="box">
-            <div className="product-card-img-container">
-              <CardImg id="product-card-img" src={data?.image} alt={data?.title} />
-            </div>
-            <Card.Body style={{ padding: "0px" }}>
-              <CardSubtitle id="product-card-title">{data?.title}</CardSubtitle>
-              <Card.Text id="product-card-price" style={{ margin: "5px", textAlign: "center" }}>
-                ${data?.price}
-              </Card.Text>
-            </Card.Body>
-          </Card>
+            <Card id="product-card-content" onClick={() => handleNavigate()} className="box">
+                <div className="product-card-img-container">
+                    <CardImg id="product-card-img" src={data?.image} alt={data?.title} />
+                </div>
+                <Card.Body style={{ padding: "0px" }}>
+                    <CardSubtitle id="product-card-title">{data?.title}</CardSubtitle>
+                    <Card.Text id="product-card-price" style={{ margin: "5px", textAlign: "center" }}>
+                        ${data?.price}
+                    </Card.Text>
+                </Card.Body>
+            </Card>
         </Col>
-      );
-    
+    );
 };
 
 
