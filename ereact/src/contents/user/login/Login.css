@@ -1,12 +1,35 @@
-#register {
-    margin-top: 15px;
-    margin-left: 15px;
+#body{
+    background-color: rgba(249,241,234,1);
 }
 
 .login-card {
+    font-family: serif;
     text-align: left;
-    margin-top: 25vh;
-    width: 600px;
-    height: 400px;
+    margin: 10% 25% 10% 25%;
+    width: auto;
+    height: auto;
+    align-self: center;
 }
 
+.form-title{
+    font-weight: bold;
+    text-align: center;
+}
+
+#register {
+    margin-top: 15px;
+}
+
+.card-container{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    min-width: 800px;
+}
+
+.form-button{
+    font-family: serif;
+    float: center;   
+    margin: auto;
+    margin: 5% 43% 5% 45%;
+}

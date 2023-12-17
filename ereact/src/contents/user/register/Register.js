@@ -39,8 +39,8 @@ const Register = () => {
     }
 
     return (
-       <div className="card-container">
-           <Card className="register-card">
+       <body id="body">
+           <Card className="register-card" style={{backgroundColor: 'rgba(229,209,208,0.5)'}}>
                <h1 className="form-title">Create Account </h1>
                <Form className="form" onSubmit={ handleRegister }>
                    <Form.Group className="form-row" controlId="formBasicEmail">
@@ -72,13 +72,13 @@ const Register = () => {
                    </Form.Group>
                    {errorMessage && <div className="form-error-message">{errorMessage}</div>}
                    <div className="button-container">
-                       <Button className="form-button" variant="primary" type="submit">
+                       <Button className="form-button bg-dark" variant="primary" type="submit">
                            Register
                        </Button>
                    </div>
                </Form>
            </Card>
-       </div>
+       </body>
     );
 }
 

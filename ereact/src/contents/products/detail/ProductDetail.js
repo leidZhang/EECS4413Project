@@ -99,15 +99,14 @@ const ProductDetail = () => { // prototype detail page
 
     return (
       <body id="body">
-       <div id="product-card-container">
-          <p id= "img"><img src={ product?.image } className="product-detail-img" alt={product?.title}/></p>
+       <div className="product-detail-container">
+            <p id= "img"><img src={ product?.image } className="product-detail-img" alt={product?.title}/></p>
             {/*  <p id="product-card-title">This is the page for { product?.id } product's details</p>*/}
             <p id="product-card-title">{ product?.title } </p>
             <p id="product-card-content">{ product?.description } </p>
             <p id="product-card-price">Price: { product?.price }</p>
             <p id="product-card-category">Category: { product?.category }</p>
             <p id="product-card-brand">Brand: { product?.brand.title }</p>
-           
             {colors && Array.from(colors).map(color => (
                 <p id="product-card-color" key={color}><input type="radio" name="color" value={color} onChange={(e) => handleAvailableSize(e.target.value)} />Color: {color}</p>
             ))}
@@ -118,7 +117,7 @@ const ProductDetail = () => { // prototype detail page
             <input id="qty-textbox" type="text" size="3" value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
             </p>
             <div id="button-container">
-                <Button id ="Button" className="form-button" variant="primary" onClick={handleAddToCart}>
+            <Button id ="button" className="form-button bg-dark" variant="primary" onClick={handleAddToCart}>
                     Add to Cart
                 </Button>
             </div>

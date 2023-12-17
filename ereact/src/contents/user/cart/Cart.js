@@ -20,16 +20,18 @@ const Cart = () => {
     }
 
     return (
+        <body id="body">
         <div className="card-container">
-            <Card id="cart-card">
+           <Card id="cart-card">
                 <Card.Title id="cart-card-title" className="card-title">Shopping Cart</Card.Title>
                 <CartItemList onItemList={handleListSize}/>
                 <div className="button-container">
-                    {listSize === 0 && <Button id="cart-button" onClick={() => navigate('/')}>Back to Home</Button>}
-                    {listSize > 0 && <Button id="cart-button" onClick={handleCheckout}>Proceed to Checkout</Button>}
+                    {listSize === 0 && <Button id="cart-button" className="back-to-Home bg-dark" onClick={() => navigate('/')}>Back to Home</Button>}
+                    {listSize > 0 && <Button id="cart-button" className="checkout bg-dark" onClick={handleCheckout}>Proceed to Checkout</Button>}
                 </div>
-            </Card>
+            </Card> 
         </div>
+        </body>
     );
 };
 

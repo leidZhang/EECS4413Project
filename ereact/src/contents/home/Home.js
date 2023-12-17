@@ -7,8 +7,7 @@ const Home = () => {
   
     return (
     
-        <div className="caresoul"><Slider></Slider>
-             <h1>React multi carousel</h1>
+        <div className="caresoul"><Slider></Slider>      
         </div>
       
     );
