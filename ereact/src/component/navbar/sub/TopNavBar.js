@@ -77,31 +77,31 @@ const TopNavBar = () => {
     };
 
     return (
-        <Navbar className="bg-body-tertiary">
+        <Navbar className="navbar navbar-light" style={{backgroundColor: 'rgba(131,151,136,0.7)'}}>
             <Navbar.Brand id="brand" className="nav-bar-component" as={Link} to="/">
-                E-Commerce
+                Nike
             </Navbar.Brand>
             <Container id="search">
                 <InputGroup>
-                    <DropdownButton variant="outline-secondary" title={option}>
-                        <DropdownItem key="0" onClick={() => handleOption("all")}>
+                    <DropdownButton id="all" variant="outline-secondary" title={option}>
+                        <DropdownItem  key="0" onClick={() => handleOption("all")}>
                             all
                         </DropdownItem>
                         {optionList && optionList.map(item => (
-                            <DropdownItem key={item['id']} onClick={() => handleOption(item['title'])}>
+                            <DropdownItem id="all" key={item['id']} onClick={() => handleOption(item['title'])}>
                                 {item['title']}
                             </DropdownItem>
                         ))}
                     </DropdownButton>
-                    <Form.Control
-                        placeholder="Search e-commerce website"
-                        aria-label="Search e-commerce website"
+                    <Form.Control id="search-input" size="15"
+                        placeholder="Nike"
+                        aria-label="Nike"
                         aria-describedby="basic-addon2"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                     />
                     <Button variant="outline-secondary" id="button-addon2" onClick={() => handleSearch()}>
-                        Search
+                        search
                     </Button>
                 </InputGroup>
             </Container>
@@ -112,9 +112,9 @@ const TopNavBar = () => {
                     trigger='click' rootClose
                     overlay={renderPopover}
                 >
-                    <Nav.Link>My Account</Nav.Link>
+                    <Nav.Link  id="overlay-trigger">My Account</Nav.Link>
                 </OverlayTrigger>
-                <Nav.Link as={Link} to="/cart">Cart</Nav.Link>
+                <Nav.Link id="cart" as={Link} to="/cart">Cart</Nav.Link>
                 <Nav.Link id="order-link" as={Link} to="/order-history">Orders</Nav.Link>
             </Nav>
         </Navbar>
