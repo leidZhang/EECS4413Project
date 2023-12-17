@@ -1,11 +1,4 @@
-html, body, #product-card-container{
-    background-color: rgba(245,228,215,0.5);
-    height: auto;
-    width: auto;
-    overflow: hidden;
-}
-
-/* Common Features in all 
+/* Common Features in all
 text-align: center;
 margin-left: 10%
 font-family: sans-serif;
@@ -29,7 +22,7 @@ font-style: bold;
     font-weight: bold;
     font-family: serif;
 }
-#product-card-title:hover {
+#product-card-content:hover {
     cursor: pointer;
 }
 

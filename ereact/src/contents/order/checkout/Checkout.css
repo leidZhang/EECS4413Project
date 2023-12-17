@@ -35,3 +35,7 @@
 #payment-buttons {
     margin-bottom: 15px;
 }
+
+#checkout-container {
+    overflow: auto;
+}

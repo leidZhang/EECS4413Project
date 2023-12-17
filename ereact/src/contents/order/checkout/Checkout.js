@@ -70,46 +70,40 @@ const Checkout = () => {
     };
 
     return (
-        <div className="card-container">
+        <div className="card-container" id="checkout-container">
             <Accordion defaultActiveKey="0" activeKey={activeKey} id="cart-accordion">
                 <Accordion.Item eventKey="0">
                     <Accordion.Header id="cart-title">Shipping Address</Accordion.Header>
                     <Accordion.Body>
-                        <div className="card-container">
-                            <Card className="checkout-card">
-                                <AddressForm
-                                    onToggleNext={handleToggleNext}
-                                    onSubmitAddress={handleAddress}
-                                />
-                            </Card>
-                        </div>
+                        <Card className="checkout-card">
+                            <AddressForm
+                                onToggleNext={handleToggleNext}
+                                onSubmitAddress={handleAddress}
+                            />
+                        </Card>
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="1">
                     <Accordion.Header id="cart-title">Payment Method</Accordion.Header>
                     <Accordion.Body>
-                        <div className="card-container">
-                            <Card className="checkout-card">
-                                <PaymentForm
-                                    onToggleNext={handleToggleNext}
-                                    onTogglePrev={handleTogglePrev}
-                                    onSubmitPayment={handlePayment}
-                                />
-                            </Card>
-                        </div>
+                        <Card className="checkout-card">
+                            <PaymentForm
+                                onToggleNext={handleToggleNext}
+                                onTogglePrev={handleTogglePrev}
+                                onSubmitPayment={handlePayment}
+                            />
+                        </Card>
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="2">
                     <Accordion.Header id="cart-title">Order Summary</Accordion.Header>
                     <Accordion.Body>
-                        <div className="card-container">
-                            <Card className="checkout-card">
-                                <OrderSummaryForm
-                                    onTogglePrev={handleTogglePrev}
-                                    onSubmitOrder={handleOrderPlace}
-                                />
-                            </Card>
-                        </div>
+                        <Card className="checkout-card">
+                            <OrderSummaryForm
+                                onTogglePrev={handleTogglePrev}
+                                onSubmitOrder={handleOrderPlace}
+                            />
+                        </Card>
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
