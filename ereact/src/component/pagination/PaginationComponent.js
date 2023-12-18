@@ -30,7 +30,7 @@ const PaginationComponent = ({ data, pageSize, onPageChange }) => {
     }
 
     const handlePageChange = (pageNum) => {
-        if (pageNum < 1 || pageNum > totalPages) return; 
+        if (pageNum < 1 || pageNum > totalPages) return;
 
         setCurrentPage(pageNum);
         handlePaginationChange();
