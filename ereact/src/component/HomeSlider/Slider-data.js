@@ -1,19 +1,22 @@
 export const sliderData =[
     {
-        image: "https://www.motortrend.com/uploads/2021/09/2022-BMW-ix-xDrive50-11.jpg",
-        heading: "BMW iX",
-        Des:"With two powerful electric motors and BMW xDrive electric all-wheel drive",
+        image: "https://files.oaiusercontent.com/file-enDUwfy0cTEGKasUxRTLORv9?se=2023-12-18T05%3A34%3A20Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dd6d53b79-469c-4b63-8dbf-e52dfa028dba.webp&sig=Fjm6LLCkojoK2uJAJ2kE5hSViV0vrUE5hKao%2BuIM84g%3D",
+        heading: "Men's Collection",
+        Des:"Shop Men Collection Now",
+        title: '1',
     },
     {
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsjap18H8Ke-bWxWqeE7eaCBgv053fAAwKgR_v6pWABuchUdCte4mXjX1TLtCIn0eWvsk&usqp=CAU",
-        heading: "BMW iX M60",
-        Des:"Two strong BMW M eDrive electric motors with up to 610 hp",
+        image: "https://files.oaiusercontent.com/file-BAzDN7V4Ta3gUOqVVR7U4ha3?se=2023-12-18T05%3A35%3A29Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D96529c4f-2097-41c4-a552-74b1cde3debb.webp&sig=eL9raW3rIiiUQLv7XZ/M/iKE4vZwxy0XiavVDICs9oY%3D",
+        heading: "Women's Collection",
+        Des:"Shop Women Collection Now",
+        title: '2',
     },
 
     {
-        image: "https://hips.hearstapps.com/hmg-prod/images/2024-bmw-i7-m70-1-6439b3fc22eb8.jpeg?crop=0.708xw:0.532xh;0.292xw,0.369xh&resize=1200:*",
-        heading: "BMW i7 M70 xDrive",
-        Des:"The BMW i7 M70 xDrive is the most powerful BMW M model",
+        image: "https://files.oaiusercontent.com/file-hgXsVXl8dyk8RMoLZSeHVzrb?se=2023-12-18T05%3A35%3A55Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D3c3c9b17-dfd1-40b8-8d7d-7a5d7cebf627.webp&sig=w26eTLfYnTHnccuOp1ojwfCnIF/9DAcaL/wSaTweetA%3D",
+        heading: "Kids Collection",
+        Des:"Shop Kids Collection Now",
+        title: '3',
     },
 
 ];

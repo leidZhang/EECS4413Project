@@ -103,3 +103,6 @@ hr{
 .button{
     background-color: black;
 }
+.button:hover{
+    cursor: pointer;
+}
