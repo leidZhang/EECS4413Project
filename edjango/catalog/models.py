@@ -9,6 +9,10 @@ class Inventory(models.Model):
     color = models.ForeignKey(Color, on_delete=models.CASCADE)
     stock = models.IntegerField(default=0)
 
+    def reduce_stock(self, number):
+        if self.stock >= number:
+            self.stock -= number
+
     class Meta:
         unique_together = ('product', 'size', 'color')
 

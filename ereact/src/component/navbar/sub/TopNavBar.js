@@ -11,6 +11,8 @@ import cookie from "react-cookies";
 import axios from "axios";
 import Popover from "react-bootstrap/Popover";
 import {DropdownButton, DropdownItem} from "react-bootstrap";
+import UserPopover from "./UserPopover";
+import LoginPopover from "./LoginPopover";
 
 const TopNavBar = () => {
     const navigate = useNavigate();
@@ -39,25 +41,13 @@ const TopNavBar = () => {
         })
     }, [searchParams]);
 
-    // logout function
-    const handleLogout = (event) => {
-        axios.post(`auth/token/logout/`).then(res => {
-            cookie.remove('user'); // remove token in the cookie
-            delete axios.defaults.headers.common['Authorization']; // remove token in the request header
-            console.log('logout!');
-        }).catch(error => {
-            console.log(error.response.data)
-        });
-    }
+
 
     // temp popout menu, put components related to log in and logout here
     const renderPopover = (props) => (
         <Popover id="popover-basic" {...props}>
-            <Popover.Header as="h3">Temp Popover</Popover.Header>
-            <Popover.Body>
-                <Button onClick={() => navigate('/login')}>Log in</Button>
-                <Button onClick={handleLogout}>Logout</Button>
-            </Popover.Body>
+            <Popover.Header as="h3">  </Popover.Header>
+            {cookie.load('user') ? <UserPopover /> : <LoginPopover />}
         </Popover>
     );
 

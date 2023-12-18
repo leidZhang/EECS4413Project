@@ -48,6 +48,11 @@ class OrderView(generics.ListCreateAPIView):
         cart_items = CartItem.objects.filter(cart=cart)
         for item in cart_items:
             OrderItem.objects.create(order=order, inventory=item.inventory, quantity=item.quantity)
+
+            # Reduce stock here
+            item.inventory.reduce_stock(item.quantity)
+            item.inventory.save()
+            # delete cart items
             item.delete()
 
         # update cart and order

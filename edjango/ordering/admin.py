@@ -20,6 +20,7 @@ class OrderItemInline(admin.TabularInline):
 
 class OrderAdmin(admin.ModelAdmin):
     inlines = [OrderItemInline]
+    list_display = ('customer', 'phone_num', 'date', 'city', 'province', 'total', 'status')
 
 
 admin.site.register(Order, OrderAdmin)
