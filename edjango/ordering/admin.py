@@ -20,6 +20,7 @@ class OrderItemInline(admin.TabularInline):
 
 class OrderAdmin(admin.ModelAdmin):
     inlines = [OrderItemInline]
+    readonly_fields = ('total', )
     list_display = ('customer', 'phone_num', 'date', 'city', 'province', 'total', 'status')
 
 

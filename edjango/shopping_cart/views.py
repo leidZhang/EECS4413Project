@@ -1,4 +1,5 @@
 from rest_framework import generics, status
+from rest_framework.response import Response
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
@@ -40,12 +41,18 @@ class CartItemView(generics.ListCreateAPIView):
             existing_item.quantity += int(quantity)
             existing_item.save()
             serializer.instance = existing_item  # Set the serializer instance for response
+            cart_item_id = existing_item.id
         else:
             # If the item does not exist, create a new one
             serializer.save(cart_id=user.id)
+            cart_item_id = serializer.instance.id
 
         # update the total price
         cart.update_total()
+
+        # Return the response with the cart_item id
+        response_data = {'cart_item_id': cart_item_id}
+        return Response(response_data, status=status.HTTP_201_CREATED)
 
 
 class SingleCartItemView(generics.RetrieveUpdateDestroyAPIView):

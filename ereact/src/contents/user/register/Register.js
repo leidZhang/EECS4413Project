@@ -49,7 +49,7 @@ const Register = () => {
         } catch (error) {
             console.log(error);
             console.log(error.response.data);
-            setErrorMessage('Register or login failed. Please check your credentials.');
+            setErrorMessage('Register failed. Please check your credentials.');
         }
     }
 
