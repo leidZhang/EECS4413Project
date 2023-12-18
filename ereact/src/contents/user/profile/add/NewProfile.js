@@ -1,36 +1,37 @@
 import React, {useEffect, useState} from "react";
-import axios from "axios";
+import {useNavigate} from "react-router-dom";
 import {Card, Col, Form, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import cookie from "react-cookies";
-import { fetchProfile } from "../../../apiUtils/ProfileAPIUtil";
-import { fetchProvinces } from "../../../apiUtils/ProviceAPIUtil";
-import {useNavigate} from "react-router-dom";
+import {fetchProvinces} from "../../../../apiUtils/ProviceAPIUtil";
+import axios from "axios";
+import {fetchProfile} from "../../../../apiUtils/ProfileAPIUtil";
 
-const Profile = () => {
+const NewProfile = () => {
     const navigate = useNavigate();
-    const [form, setForm] = useState(null);
+
+    const [form, setForm] = useState({'province': 'NL'});
     const [errors, setErrors] = useState({});
     const [provinceList, setProvinceList] = useState(null);
 
     useEffect(() => {
-        if (!cookie.load('user')) navigate('/login');
-
         const fetchData = async () => {
-            try {
-                // get user profile
+            try {// get user profile
                 const newForm = await fetchProfile();
-                setForm(newForm);
-                // get provinces from 3rd party api
-                const provinces = await fetchProvinces();
-                setProvinceList(provinces);
+                if (newForm.firstName === "") {
+                    // get provinces from 3rd party api
+                    const provinces = await fetchProvinces();
+                    setProvinceList(provinces);
+                } else {
+                    navigate('/');
+                }
             } catch (error) {
                 console.error(error);
+                navigate('/login');
             }
         };
 
         fetchData();
-    }, []); // The empty dependency array means this effect will run once on mount
+    }, []);
 
     const setField = (field, value) => {
         setForm({...form, [field]:value});
@@ -62,7 +63,7 @@ const Profile = () => {
         return newError;
     };
 
-    const handleUpdate = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         const formErrors = validateForm();
@@ -85,20 +86,23 @@ const Profile = () => {
             province: form.province
         };
 
+        console.log(newForm);
+
         axios.put(`api/identity/user-info`, newForm).then(res => {
             console.log(res.data);
+            navigate('/');
         }).catch(error => {
             console.log(error);
         });
-    };
+    }
 
     return (
         <Card
             className="profile-card"
             style={{backgroundColor: 'rgba(229,209,208,0.5)', width: '800px', textAlign: "left", margin: "10% 25% 10% 25%"}}
         >
-            <h1 className="form-title">My Profile</h1>
-            <Form className="form" id="profile-form" onSubmit={handleUpdate}>
+            <h1 className="form-title">Profile</h1>
+            <Form className="form" id="profile-form" onSubmit={handleSubmit}>
                 <Row className="form-row" id="checkout-form-row">
                     <Col>
                         <Form.Label>First Name</Form.Label>
@@ -217,12 +221,12 @@ const Profile = () => {
                         id="address-button"
                         type="submit"
                     >
-                        Update
+                        Submit
                     </Button>
                 </div>
             </Form>
         </Card>
     );
-};
+}
 
-export default Profile;
+export default NewProfile;

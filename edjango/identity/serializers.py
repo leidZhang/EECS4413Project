@@ -29,7 +29,7 @@ class CustomerInfoSerializer(serializers.ModelSerializer):
         instance.phone_num = validated_data.pop("phone_num")
         instance.city = validated_data.pop("city")
         instance.address_1 = validated_data.pop("address_1")
-        instance.address_2 = validated_data.pop("address_2")
+        instance.address_2 = validated_data.get("address_2") or ""
         instance.province = validated_data.pop("province")
         instance.postal_code = validated_data.pop("postal_code")
 

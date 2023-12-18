@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import ProductCard from "../../../../component/productCard/ProductCard";
 import PaginationComponent from "../../../../component/pagination/PaginationComponent";
-import axios from "axios";
 
 const ProductList = ({productList, generalProductList, pageSize, onPageChange}) => { // list by category
     return (
