@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
-import './Register.css'
+import './Register.css';
 import Card from 'react-bootstrap/Card';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import cookie from "react-cookies";
+import axios from "axios";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -18,29 +18,39 @@ const Register = () => {
         if (cookie.load('user')) navigate('/'); // redirect to home if already login
     }, []);
 
-    const handleRegister = (event) => {
+    const handleRegister = async (event) => {
         event.preventDefault();
 
         const credentials = {
+            aaa: "aaa",
             username: username,
             password: password,
         };
 
         setErrorMessage('');
-        if (password != reEntered) {
+        if (password !== reEntered) {
             setErrorMessage('Password must match!');
-            return; // stop here if not matched 
+            return; // stop here if not matched
         }
 
-        axios.post(`auth/users/`, credentials).then(res => {
+        try {
+            // register the user
+            const res1 = await axios.post(`auth/users/`, credentials);
             console.log('Register successful');
-            console.log(res.data);
-            navigate('/login'); // jump to login temporarily
-        }).catch(error => {
+            console.log(res1.data);
+            // login the user
+            const res2 = await axios.post(`/auth/token/login/`, credentials);
+            // get token from the backend
+            const token = res2.data['auth_token'];
+            // save token in the cookie and cookie expire after 1 year
+            cookie.save('user', token, { path: '/', expires: new Date(Date.now() + 31536000000) });
+            // navigate to profile page
+            navigate('/new-profile');
+        } catch (error) {
             console.log(error);
             console.log(error.response.data);
-            setErrorMessage('Register failed. Please check your credentials.');
-        });
+            setErrorMessage('Register or login failed. Please check your credentials.');
+        }
     }
 
     return (
