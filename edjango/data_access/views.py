@@ -36,6 +36,12 @@ class ProductView(generics.ListAPIView):
     # permission_classes = [permissions.IsAuthenticated, IsAdminOrReadOnly]
 
 
+class GeneralProductView(generics.ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    pagination_class = None
+
+
 class SingleProductView(generics.RetrieveUpdateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
