@@ -50,9 +50,15 @@ const ProductDetail = () => { // prototype detail page
             const size = data[i]["size"]["title"];
 
             const key = color + "-" + size;
-            res[key] = data[i]["id"];
+            res[key] = data[i];
         }
+
         return res;
+    };
+
+    const getInventoryStock = (color, size) => {
+        const key = color + "-" + size;
+        return inventories[key]['stock'];
     };
 
     const handleProductInfo = () => {
@@ -86,7 +92,7 @@ const ProductDetail = () => { // prototype detail page
         const inventory = inventories[key];
 
         const data = { // implementing
-            inventory_id: inventory,
+            inventory_id: inventory['id'],
             quantity: quantity,
         }
 
@@ -110,10 +116,19 @@ const ProductDetail = () => { // prototype detail page
                 <p id="product-card-color" key={color}><input type="radio" name="color" value={color} onChange={(e) => handleAvailableSize(e.target.value)} />Color: {color}</p>
             ))}
             {selectedColor && sizes && Array.from(sizes).map(size => (
-                <p  id="product-card-size" key={size}><input type="radio" name="size" value={size} onChange={(e) => setSelectedSize(e.target.value)} />Size: {size}</p>
+                <p  id="product-card-size" key={size}>
+                    <input
+                        type="radio"
+                        name="size"
+                        value={size}
+                        onChange={(e) => setSelectedSize(e.target.value)}
+                        disabled={getInventoryStock(selectedColor, size) === 0}
+                    />
+                    Size: {size} Stock: {getInventoryStock(selectedColor, size)}
+                </p>
             ))}
             <p id="product-card-qty">QTY: 
-            <input id="qty-textbox" type="text" size="3" value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
+                <input id="qty-textbox" type="text" size="3" value={quantity} onChange={(e) => setQuantity(e.target.value)}/>
             </p>
             <div id="button-container">
                 <Button id ="add-to-cart-button" className="form-button bg-dark" variant="primary" onClick={handleAddToCart}>

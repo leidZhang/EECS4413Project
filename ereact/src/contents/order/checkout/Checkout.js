@@ -65,7 +65,7 @@ const Checkout = () => {
             console.log(res.data);
 
             const orderId = res.data.id
-            navigate('/order-detail');
+            navigate(`/order-detail/${orderId}`);
         }).catch(error => {
             console.log(error);
         });

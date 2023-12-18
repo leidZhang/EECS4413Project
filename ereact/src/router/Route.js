@@ -55,7 +55,7 @@ export default [
             },
             // ===== order detail =====
             {
-              path: 'order-detail',
+              path: 'order-detail/:id',
               element: <OrderDetail />
             },
             // ===== search =====

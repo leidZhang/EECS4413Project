@@ -216,7 +216,9 @@ const Profile = () => {
                         className="form-button"
                         id="address-button"
                         type="submit"
-                    >Confirm</Button>
+                    >
+                        Update
+                    </Button>
                 </div>
             </Form>
         </Card>
