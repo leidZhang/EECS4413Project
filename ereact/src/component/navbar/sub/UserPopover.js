@@ -7,16 +7,18 @@ import {Col, Row} from "react-bootstrap";
 
 const UserPopover = () => {
     // logout function
-    const handleLogout = (event) => {
-        axios.post(`auth/token/logout/`).then(res => {
-            cookie.remove('user'); // remove token in the cookie
-            delete axios.defaults.headers.common['Authorization']; // remove token in the request header
-            console.log('logout!');
-            // refresh page
-            window.location.reload();
-        }).catch(error => {
-            console.log(error.response.data)
-        });
+    const handleLogout = async () => {
+        try {
+            cookie.remove('user', { path: '/' }); // remove token in the cookie
+            console.log(cookie.load('user'));
+            if (!cookie.load('user')) {
+                await axios.post(`auth/token/logout/`);
+                delete axios.defaults.headers.common['Authorization']; // remove token in the request header
+                window.location.reload();
+            }
+        } catch (error) {
+            console.log(error.response.data);
+        }
     };
 
     return (
@@ -26,7 +28,7 @@ const UserPopover = () => {
                     <Col><Link to='/profile'>My Profile</Link></Col>
                 </Row>
                 <Row>
-                    <Col><Link onClick={handleLogout}>Sign out</Link></Col>
+                    <Col><Link onClick={() => handleLogout()}>Sign out</Link></Col>
                 </Row>
             </Popover.Body>
         </div>

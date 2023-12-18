@@ -4,7 +4,7 @@ import {CardBody, CardImg, CardSubtitle, CardText, ListGroupItem} from "react-bo
 import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 
-const OrderItem = ({ data, reRender }) => {
+const CartItem = ({ data, reRender }) => {
     const navigate = useNavigate();
     // data received from parent component
     const {inventory, quantity} = data;
@@ -77,4 +77,4 @@ const OrderItem = ({ data, reRender }) => {
     )
 };
 
-export default OrderItem;
+export default CartItem;
