@@ -42,10 +42,12 @@
 #filter-submit-button {
     margin-top: 5px;
     margin-right: 5px;
+    background-color: black;
 }
 
 #filter-reset-button {
     margin-top: 5px;
+    background-color: black;
 }
 
 #filter-button-container {
