@@ -14,6 +14,7 @@ const SearchResult = () => { // temp implementation for demonstrating ProductCar
     const location = useLocation();
     const navigate = useNavigate();
 
+    const [generalProductList, setGeneralProductList] = useState(null);
     const [productList, setProductList] = useState(null);
     const [selectedBrand, setSelectedBrand] = useState(new Set());
     const [brands, setBrands] = useState(null);
@@ -26,9 +27,15 @@ const SearchResult = () => { // temp implementation for demonstrating ProductCar
         setSelectedProduct(new Set());
         setOrder("");
 
+        axios.get(`api/data-access/products/all`).then(res => {
+            setGeneralProductList(res.data);
+            console.log(res.data)
+        }).catch(error => {
+            console.log(error);
+        })
+
         axios.get(`api/data-access/products${allParams}`).then(res => {
             const data = res.data['results'];
-            console.log(data);
             setProductList(data);
             setBrands(getBrands(data));
         }).catch(error => {
@@ -99,6 +106,10 @@ const SearchResult = () => { // temp implementation for demonstrating ProductCar
         window.location.reload();
     }
 
+    const handlePageChange = (params) => {
+        navigate(`/search-result?${params}`);
+    }
+
     return (
         <div className="result-page-container">
             <div className="filter-container">
@@ -110,7 +121,7 @@ const SearchResult = () => { // temp implementation for demonstrating ProductCar
                         handleBrand={setSelectedBrand}
                     />
                     <GroupFilter
-                        productList={productList}
+                        productList={generalProductList}
                         selectedProduct={selectedProduct}
                         handleProduct={setSelectedProduct}
                         handleSelection={handleSelection}
@@ -130,7 +141,12 @@ const SearchResult = () => { // temp implementation for demonstrating ProductCar
                     </div>
                 </Form>
             </div>
-            <ProductList productList={productList} />
+            <ProductList
+                productList={productList}
+                generalProductList={generalProductList}
+                pageSize={20}
+                onPageChange={handlePageChange}
+            />
         </div>
     );
 }

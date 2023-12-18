@@ -57,5 +57,11 @@
 #result-card {
     display: flex;
     justify-content: left;
+    flex-wrap: wrap;
     margin-left: 0px;
+    margin-top: 30px;
+}
+
+#search-pagination {
+    margin-left: 30%;
 }
