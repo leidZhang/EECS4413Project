@@ -63,6 +63,8 @@ const Checkout = () => {
         console.log(orderInfo);
         axios.post(`/api/ordering/orders`, orderInfo).then(res => {
             console.log(res.data);
+
+            const orderId = res.data.id
             navigate('/order-detail');
         }).catch(error => {
             console.log(error);

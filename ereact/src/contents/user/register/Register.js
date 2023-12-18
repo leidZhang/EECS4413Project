@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './Register.css'
 import Card from 'react-bootstrap/Card';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import cookie from "react-cookies";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -12,6 +13,10 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [reEntered, setReEntered] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+
+    useEffect(() => {
+        if (cookie.load('user')) navigate('/'); // redirect to home if already login
+    }, []);
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -27,7 +32,7 @@ const Register = () => {
             return; // stop here if not matched 
         }
 
-        axios.post(`/auth/users/`, credentials).then(res => {
+        axios.post(`auth/users/`, credentials).then(res => {
             console.log('Register successful');
             console.log(res.data);
             navigate('/login'); // jump to login temporarily

@@ -5,6 +5,7 @@ import Login from "../contents/user/login/Login";
 import NotFound from "../contents/notfound/NotFound";
 import Layout from "../Layout";
 import ProductList from "../contents/products/searchresult/component/ProductList";
+import Profile from "../contents/user/profile/Profile";
 import Checkout from "../contents/order/checkout/Checkout";
 import Cart from "../contents/user/cart/Cart";
 import OrdersHistory from "../contents/order/history/OrdersHistory";
@@ -61,7 +62,12 @@ export default [
             {
                 path: '/search-result',
                 element: <SearchResult />
-            }
+            },
+            // ===== profile =====
+            {
+                path: '/profile',
+                element: <Profile />
+            },
         ]
     },
     // ===== 404 =====

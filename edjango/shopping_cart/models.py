@@ -8,7 +8,7 @@ from identity.models import Customer
 class Cart(models.Model):
     customer = models.OneToOneField(Customer, on_delete=models.CASCADE, primary_key=True)
     inventories = models.ManyToManyField(Inventory, through='CartItem')
-    total = models.DecimalField(max_digits=6, decimal_places=2)
+    total = models.DecimalField(max_digits=6, decimal_places=2, default=0.00)
 
     def __str__(self):
         return str(self.customer.username)

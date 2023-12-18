@@ -1,7 +1,7 @@
 import './Login.css'
 import axios from "axios";
 import cookie from 'react-cookies';
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
@@ -13,6 +13,10 @@ const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+
+    useEffect(() => {
+        if (cookie.load('user')) navigate('/'); // redirect to home if already login
+    }, []);
 
     const handleLogin = (event) => {
         event.preventDefault();

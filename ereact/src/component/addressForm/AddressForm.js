@@ -2,29 +2,30 @@ import React, {useEffect, useState} from "react";
 import "./AddressForm.css";
 import {Col, Form, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import axios from "axios";
-import cookie from "react-cookies";
+import {fetchProfile} from "../../apiUtils/ProfileAPIUtil";
+import {fetchProvinces} from "../../apiUtils/ProviceAPIUtil";
 
 const AddressForm = ({ onToggleNext, onSubmitAddress }) => {
     const [provinceList, setProvinceList] = useState(null);
     const [form, setForm] = useState({'province': 'NL'});
     const [errors, setErrors] = useState({});
 
-    useEffect(() => { // get province list
-        delete axios.defaults.headers.common['Authorization']; // remove token in the request header
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                // get user profile
+                const newForm = await fetchProfile();
+                setForm(newForm);
+                // get provinces from 3rd party api
+                const provinces = await fetchProvinces();
+                setProvinceList(provinces);
+            } catch (error) {
+                console.error(error);
+            }
+        };
 
-        axios.get(`https://geogratis.gc.ca/services/geoname/en/codes/province`).then(res => {
-            const data = res.data['definitions'];
-            // set province list
-            setProvinceList(data);
-        }).catch(error => {
-            setProvinceList([]);
-            console.log(error);
-        });
-
-        const token = cookie.load('user'); // reload token after the request
-        axios.defaults.headers.common['Authorization'] = `Token ${token}`;
-    }, []);
+        fetchData();
+    }, []); // The empty dependency array means this effect will run once on mount
 
     const setField = (field, value) => {
         setForm({...form, [field]:value});
