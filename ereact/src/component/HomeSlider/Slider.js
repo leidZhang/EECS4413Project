@@ -52,7 +52,7 @@ const Slider = () => {
                                     <h2>{slide.heading}</h2>
                                     <p>{slide.Des}</p>
                                     <hr/>
-                                    <button className="button">Shop Now</button>
+                                    <button className="button" onClick={'/search-result?category=${slide.title}'}>Shop Now</button>
                                 </div>
                             </>
                         )}
