@@ -104,7 +104,7 @@ const ProductDetail = () => { // prototype detail page
                 console.log(error);
             });
         } else {
-            alert("Please select a color and a size");    
+            alert("Please select a color and a size");
         }
     }
 
