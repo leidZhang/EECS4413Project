@@ -17,6 +17,7 @@
 .result-container {
     text-align: left;
     margin-left: 10px;
+    width: 100vw;
 }
 
 .result-title {
