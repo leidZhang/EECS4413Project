@@ -68,7 +68,7 @@ const SearchResult = () => { // temp implementation for demonstrating ProductCar
     }
 
     const handleConcat = (set, searchField) => {
-        if (set.size == 0) return "";
+        if (set.size === 0) return "";
         let res = searchField + "=";
         for (let element of set) {
             res += element + "%2C";

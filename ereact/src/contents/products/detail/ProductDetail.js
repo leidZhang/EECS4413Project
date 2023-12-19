@@ -114,7 +114,7 @@ const ProductDetail = () => { // prototype detail page
             {/*  <p id="product-card-title">This is the page for { product?.id } product's details</p>*/}
             <p id="product-card-title">{ product?.title } </p>
             <p id="product-card-content">{ product?.description } </p>
-            <p id="product-card-price">Price: { product?.price }</p>
+            <p id="product-card-price">Price: ${ product?.price }</p>
             <p id="product-card-category">Category: { product?.category }</p>
             <p id="product-card-brand">Brand: { product?.brand.title }</p>
             {colors && Array.from(colors).map(color => (

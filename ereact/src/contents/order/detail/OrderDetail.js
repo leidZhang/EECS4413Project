@@ -38,6 +38,7 @@ const OrderDetail = () => {
         <div className="order-detail-container">
             <div className="general-order-info-container">
                 <h3>Order Details - ID: {orderForm?.id}</h3>
+                <p>Total: ${orderForm?.total}</p>
                 <p>First Name: {orderForm?.first_name}</p>
                 <p>Last Name: {orderForm?.last_name}</p>
                 <p>Date: {orderForm?.date}</p>

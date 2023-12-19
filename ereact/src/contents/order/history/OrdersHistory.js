@@ -44,7 +44,9 @@ const OrdersHistory = () => {
             <div className="order-history-list-container">
                 {orderList && orderList.length > 0 && orderList.map(order => (
                     // temp history list, please implement pagination component
-                    <p key={order.id}><Link to={`/order-detail/${order.id}`}>Order ID: {order.id}</Link></p>
+                    <p key={order.id}><Link to={`/order-detail/${order.id}`}>
+                        Order ID: {order.id} - Date: {order.date} - Total: ${order.total}
+                    </Link></p>
                 ))}
             </div>
             <div className="pagination-container">

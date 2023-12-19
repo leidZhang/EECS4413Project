@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import React from "react";
+import {Link} from "react-router-dom";
 import axios from "axios";
 import cookie from "react-cookies";
 import Popover from "react-bootstrap/Popover";
