@@ -27,7 +27,10 @@ const UserPopover = () => {
                 <Row style={{margin: "5px"}}>
                     <Col><Link to='/profile'>My Profile</Link></Col>
                 </Row>
-                <Row>
+                <Row style={{margin: "5px"}}>
+                    <Col><Link to='/order-history'>My Orders</Link></Col>
+                </Row>
+                <Row style={{margin: "5px"}}>
                     <Col><Link onClick={() => handleLogout()}>Sign out</Link></Col>
                 </Row>
             </Popover.Body>
