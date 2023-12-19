@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 19/12/2023 03:16:20
+ Date: 19/12/2023 03:54:19
 */
 
 SET NAMES utf8mb4;
@@ -369,10 +369,10 @@ INSERT INTO `catalog_inventory` VALUES (14, 13, 3, 8, 3);
 INSERT INTO `catalog_inventory` VALUES (15, 25, 1, 9, 4);
 INSERT INTO `catalog_inventory` VALUES (16, 14, 3, 10, 4);
 INSERT INTO `catalog_inventory` VALUES (17, 15, 2, 11, 4);
-INSERT INTO `catalog_inventory` VALUES (18, 147, 3, 12, 3);
-INSERT INTO `catalog_inventory` VALUES (19, 15, 3, 13, 4);
+INSERT INTO `catalog_inventory` VALUES (18, 146, 3, 12, 3);
+INSERT INTO `catalog_inventory` VALUES (19, 14, 3, 13, 4);
 INSERT INTO `catalog_inventory` VALUES (20, 12, 3, 14, 4);
-INSERT INTO `catalog_inventory` VALUES (21, 14, 2, 15, 5);
+INSERT INTO `catalog_inventory` VALUES (21, 13, 2, 15, 5);
 INSERT INTO `catalog_inventory` VALUES (22, 8, 2, 16, 4);
 INSERT INTO `catalog_inventory` VALUES (23, 45, 2, 17, 4);
 INSERT INTO `catalog_inventory` VALUES (24, 45, 3, 18, 4);
@@ -462,11 +462,11 @@ CREATE TABLE `data_access_product`  (
 INSERT INTO `data_access_product` VALUES (1, 'Nike Air Max 90', 'Lace up and feel the legacy. Produced at the intersection of art, music and culture, this champion running shoe helped define the ‘90s.', 130.00, 1, 1, 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/323fe23a-d7ff-4ecc-98a1-9c9ca472a91a/air-max-90-mens-shoes-JdKKmQ.png');
 INSERT INTO `data_access_product` VALUES (2, 'Nike Air Max Alpha Trainer 5', 'Finish your last rep with power and rack it with a roar that stuns the gym floor in the Nike Air Max Alpha Trainer 5.', 95.00, 1, 1, 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/c70443ce-eea5-4c0c-a8a1-44c645165882/air-max-alpha-trainer-5-mens-workout-shoes-7LjRM6.png');
 INSERT INTO `data_access_product` VALUES (3, 'Nike Air Max 1 SC', 'Premium leather adorns the wavy mudguard and Swoosh logo, while soft suede and airy underlays nod to the \'87 original. It\'s timeless for a reason.', 150.00, 1, 1, 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/56630978-24cf-4364-a876-7eeb525a0246/air-max-1-sc-mens-shoes-bNNbQl.png');
-INSERT INTO `data_access_product` VALUES (4, 'Nike Air Max 90', 'Lace up and feel the legacy. Produced at the intersection of art, music and culture, this champion running shoe helped define the ‘90s', 110.97, 1, 1, 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/23fd664e-2962-4ea1-8389-cf98ac2dd2fc/air-max-90-mens-shoes-mVHjHQ.png');
+INSERT INTO `data_access_product` VALUES (4, 'Nike Air Max 91', 'Lace up and feel the legacy. Produced at the intersection of art, music and culture, this champion running shoe helped define the ‘90s', 110.97, 1, 1, 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/23fd664e-2962-4ea1-8389-cf98ac2dd2fc/air-max-90-mens-shoes-mVHjHQ.png');
 INSERT INTO `data_access_product` VALUES (5, 'Nike Air Max 90 GORE-TEX', 'Lace up and feel the legacy. These AM90s will keep up with you on all your adventures thanks to a mix of GORE-TEX and mesh materials.', 160.00, 1, 1, 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/2bfeb732-b691-4a21-b8fe-2a4fd3a1cbc7/air-max-90-gore-tex-mens-shoes-cZwz8t.png');
 INSERT INTO `data_access_product` VALUES (6, 'Nike Air Max 1 Premium', 'The Air Max 1 \"Dirty Denim\" nods to the coveted 2003 drop that brought an aged-to-perfection look to the leader of the sneaker pack', 150.00, 1, 1, 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/2bfeb732-b691-4a21-b8fe-2a4fd3a1cbc7/air-max-90-gore-tex-mens-shoes-cZwz8t.png');
 INSERT INTO `data_access_product` VALUES (7, 'Nike Air Max Genome', 'The low-profile, full-length Air unit adds comfort to match its sleek design that\'s sure to become your new favorite Air Max. This product is made with at least 20% recycled materials by weight.', 180.00, 1, 1, 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/8dcf0af6-4fc8-4f0d-b8b2-0f8104ede799/air-max-genome-mens-shoes-f4SHr3.png');
-INSERT INTO `data_access_product` VALUES (8, 'Nike Air Max 90', 'Lace up and feel the legacy. Produced at the intersection of art, music and culture, this champion running shoe helped define the \'90s.', 140.00, 1, 1, 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/693986ef-9586-461d-acbd-88fe9163d733/air-max-90-shoes-NKzt71.png');
+INSERT INTO `data_access_product` VALUES (8, 'Nike Air Max 92', 'Lace up and feel the legacy. Produced at the intersection of art, music and culture, this champion running shoe helped define the \'90s.', 140.00, 1, 1, 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/693986ef-9586-461d-acbd-88fe9163d733/air-max-90-shoes-NKzt71.png');
 INSERT INTO `data_access_product` VALUES (9, 'Nike Air Max 97', 'Push your look full speed ahead with the Nike Air Max 97. Its iconic design takes inspiration from Japanese bullet trains while fresh colors and prints add fast-paced style.', 185.00, 1, 1, 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/1019e829-18a1-452e-80c4-bff500c2750b/air-max-97-mens-shoes-6mZC1L.png');
 INSERT INTO `data_access_product` VALUES (10, 'Nike Air Max 1 Premium 2', 'Casual flair 101: Hemp canvas, check. Suede mudguard, check. Crepe outsole aesthetic, check.', 180.00, 1, 1, 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/15030137-f3e4-44c6-8c90-1ec2f210f3bb/air-max-1-premium-2-shoes-Zl7x8b.png');
 INSERT INTO `data_access_product` VALUES (11, 'Nike Air Max 1 \'86 OG G NRG', 'It sports the vintage Air Max 1 details you love: Clean lines, no-sew overlays, unmistakable colors and melds them with an outsole ready for the links. Details throughout nod to this prestigious tournament.', 180.00, 1, 1, 'https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/f7a97c2b-22c3-4a3f-bfd6-7f33960fc723/air-max-1-86-og-g-nrg-mens-golf-shoes-q2mp7S.png');
@@ -524,7 +524,7 @@ CREATE TABLE `django_admin_log`  (
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `django_admin_log_chk_1` CHECK (`action_flag` >= 0)
-) ENGINE = InnoDB AUTO_INCREMENT = 132 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 134 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of django_admin_log
@@ -660,6 +660,8 @@ INSERT INTO `django_admin_log` VALUES (128, '2023-12-19 08:06:43.100297', '29', 
 INSERT INTO `django_admin_log` VALUES (129, '2023-12-19 08:06:56.266138', '30', '9 Elite Mercurial Dream-5.5-Green', 1, '[{\"added\": {}}]', 21, 1);
 INSERT INTO `django_admin_log` VALUES (130, '2023-12-19 08:07:13.580128', '31', 'Nike Phantom Luna Elite SE-6-Red', 1, '[{\"added\": {}}]', 21, 1);
 INSERT INTO `django_admin_log` VALUES (131, '2023-12-19 08:07:26.825893', '1', 'admin', 3, '', 16, 1);
+INSERT INTO `django_admin_log` VALUES (132, '2023-12-19 08:53:36.724186', '4', 'Nike Air Max 91', 2, '[{\"changed\": {\"fields\": [\"Title\"]}}]', 13, 1);
+INSERT INTO `django_admin_log` VALUES (133, '2023-12-19 08:53:46.182325', '8', 'Nike Air Max 92', 2, '[{\"changed\": {\"fields\": [\"Title\"]}}]', 13, 1);
 
 -- ----------------------------
 -- Table structure for django_content_type
@@ -845,12 +847,13 @@ CREATE TABLE `ordering_order`  (
   INDEX `ordering_order_customer_id_db5570b3_fk_auth_user_id`(`customer_id` ASC) USING BTREE,
   INDEX `ordering_order_date_69350568`(`date` ASC) USING BTREE,
   CONSTRAINT `ordering_order_customer_id_db5570b3_fk_auth_user_id` FOREIGN KEY (`customer_id`) REFERENCES `auth_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ordering_order
 -- ----------------------------
 INSERT INTO `ordering_order` VALUES (22, 299.00, '2023-12-19', 30, 'processing', '123 Rainbow St', '', 'Tornto', 'Jkd', 'Fgd', 'Debit Card', '1234567895', 'K9C 8C9', 'ON');
+INSERT INTO `ordering_order` VALUES (23, 523.25, '2023-12-19', 30, 'processing', '123 Rainbow St', '', 'Tornto', 'Jkd', 'Fgd', 'Debit Card', '1234567895', 'K9C 8C9', 'ON');
 
 -- ----------------------------
 -- Table structure for ordering_orderitem
@@ -866,12 +869,15 @@ CREATE TABLE `ordering_orderitem`  (
   INDEX `ordering_orderitem_order_id_050e4dc5_fk_ordering_order_id`(`order_id` ASC) USING BTREE,
   CONSTRAINT `ordering_orderitem_ibfk_1` FOREIGN KEY (`inventory_id`) REFERENCES `catalog_inventory` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `ordering_orderitem_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `ordering_order` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ordering_orderitem
 -- ----------------------------
 INSERT INTO `ordering_orderitem` VALUES (11, 2, 1, 22);
+INSERT INTO `ordering_orderitem` VALUES (12, 1, 19, 23);
+INSERT INTO `ordering_orderitem` VALUES (13, 1, 21, 23);
+INSERT INTO `ordering_orderitem` VALUES (14, 1, 18, 23);
 
 -- ----------------------------
 -- Table structure for shopping_cart_cart
@@ -900,7 +906,7 @@ INSERT INTO `shopping_cart_cart` VALUES (23, 0.00);
 INSERT INTO `shopping_cart_cart` VALUES (24, 0.00);
 INSERT INTO `shopping_cart_cart` VALUES (25, 0.00);
 INSERT INTO `shopping_cart_cart` VALUES (28, 0.00);
-INSERT INTO `shopping_cart_cart` VALUES (30, 0.00);
+INSERT INTO `shopping_cart_cart` VALUES (30, 120.00);
 
 -- ----------------------------
 -- Table structure for shopping_cart_cartitem
@@ -916,10 +922,11 @@ CREATE TABLE `shopping_cart_cartitem`  (
   INDEX `shopping_cart_cartit_inventory_id_d1a64bb4_fk_catalog_i`(`inventory_id` ASC) USING BTREE,
   CONSTRAINT `shopping_cart_cartitem_ibfk_1` FOREIGN KEY (`cart_id`) REFERENCES `shopping_cart_cart` (`customer_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `shopping_cart_cartitem_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `catalog_inventory` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of shopping_cart_cartitem
 -- ----------------------------
+INSERT INTO `shopping_cart_cartitem` VALUES (18, 1, 30, 21);
 
 SET FOREIGN_KEY_CHECKS = 1;
