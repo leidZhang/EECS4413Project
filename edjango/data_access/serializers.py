@@ -11,7 +11,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class BrandSerializer(serializers.ModelSerializer):
     class Meta:
         model = Brand
-        fields = ['id', 'title', 'image']
+        fields = ['id', 'title']
 
 
 class ColorSerializer(serializers.ModelSerializer):
