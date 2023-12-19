@@ -26,6 +26,19 @@
     max-width: 20vw;
     flex: 1;
     padding-left: 100px;
+    animation: animated-border 1.5s infinite;
+    line-height: 30px;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+@keyframes animated-border {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255,255,255,0.4);
+    }
+    100% {
+        box-shadow: 0 0 0 20px rgba(255,255,255,0);
+    }
 }
 
 #order-item-card {
