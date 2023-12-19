@@ -35,9 +35,9 @@ const OrderDetail = () => {
     }, [id, navigate]);
 
     return (
-        <div>
+        <div className="order-detail-container">
             <div className="general-order-info-container">
-                <p>Order ID: {orderForm?.id}</p>
+                <h3>Order Details - ID: {orderForm?.id}</h3>
                 <p>First Name: {orderForm?.first_name}</p>
                 <p>Last Name: {orderForm?.last_name}</p>
                 <p>Date: {orderForm?.date}</p>
@@ -48,8 +48,9 @@ const OrderDetail = () => {
                 <p>City: {orderForm?.city}</p>
                 <p>Province: {orderForm?.province}</p>
             </div>
-            <div className="card-container">
+            <div className="card-container" id="order-card-container">
                 <Card id="order-item-card">
+                    <Card.Title id="cart-card-title" className="card-title">Order Items</Card.Title>
                     <ListGroup>
                         {inventories?.length > 0 && inventories.map(inventory => (
                             <OrderItem data={inventory} key={inventory.id} />

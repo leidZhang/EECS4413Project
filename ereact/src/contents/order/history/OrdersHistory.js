@@ -39,16 +39,21 @@ const OrdersHistory = () => {
     }
 
     return (
-        <div>
-            {orderList && orderList.length > 0 && orderList.map(order => (
-                // temp history list, please implement pagination component
-                <p key={order.id}><Link to={`/order-detail/${order.id}`}>Order ID: {order.id}</Link></p>
-            ))}
-            <PaginationComponent
-                data={totalNum}
-                pageSize={20}
-                onPageChange={handleChangePage}
-            />
+        <div className="order-history-container">
+            <h1>Order History</h1>
+            <div className="order-history-list-container">
+                {orderList && orderList.length > 0 && orderList.map(order => (
+                    // temp history list, please implement pagination component
+                    <p key={order.id}><Link to={`/order-detail/${order.id}`}>Order ID: {order.id}</Link></p>
+                ))}
+            </div>
+            <div className="pagination-container">
+                <PaginationComponent
+                    data={totalNum}
+                    pageSize={20}
+                    onPageChange={handleChangePage}
+                />
+            </div>
         </div>
     );
 };
