@@ -9,3 +9,17 @@
     max-width: auto;
     align-self: center;
 }
+
+.title {
+    font-size: xxx-large;
+    font-style: italic;
+    font-weight: bold;
+    font-family: Arial;
+    text-align: center;
+}
+
+.general-order-info-container {
+    font-family: "Times New Roman";
+    color: cornflowerblue;
+    text-align: left;
+}
