@@ -40,5 +40,8 @@ class OrderItem(models.Model):
     inventory = models.ForeignKey(Inventory, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
 
+    class Meta:
+        verbose_name = 'Sale History'
+
     def __str__(self):
         return 'inventory'

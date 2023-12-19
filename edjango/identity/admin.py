@@ -7,13 +7,13 @@ class CustomerInfoInline(admin.StackedInline):
     model = CustomerInfo
     fields = ('phone_num', 'address_2', 'address_1', 'city', 'province', 'postal_code')
     extra = 1
-    show_change_link = True
 
 
-class OrderInline(admin.StackedInline):
+class OrderInline(admin.TabularInline):
     model = Order
     fields = ('date', 'status', 'total', 'payment_method')
     extra = 0
+    show_change_link = True
 
 
 class CustomerAdmin(admin.ModelAdmin):

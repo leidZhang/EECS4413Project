@@ -87,6 +87,7 @@ const Profile = () => {
 
         axios.put(`api/identity/user-info`, newForm).then(res => {
             console.log(res.data);
+            alert("Update successful");
         }).catch(error => {
             console.log(error);
         });

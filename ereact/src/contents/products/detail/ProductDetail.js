@@ -88,19 +88,24 @@ const ProductDetail = () => { // prototype detail page
     }
 
     const handleAddToCart = () => {
-        const key = selectedColor + '-' + selectedSize;
-        const inventory = inventories[key];
+        if (selectedColor && selectedSize) {
+            const key = selectedColor + '-' + selectedSize;
+            const inventory = inventories[key];
 
-        const data = { // implementing
-            inventory_id: inventory['id'],
-            quantity: quantity,
+            const data = { // implementing
+                inventory_id: inventory['id'],
+                quantity: quantity,
+            }
+
+            axios.post(`http://localhost:8000/api/shopping-cart/cart/items`, data).then(res => {
+                console.log(res.data);
+                alert("Add to cart!");
+            }).catch(error => {
+                console.log(error);
+            });
+        } else {
+            alert("Please select a color and a size");    
         }
-
-        axios.post(`http://localhost:8000/api/shopping-cart/cart/items`, data).then(res => {
-            console.log(res.data);
-        }).catch(error => {
-            console.log(error);
-        })
     }
 
     return (
