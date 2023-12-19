@@ -3,9 +3,11 @@ import cookie from "react-cookies";
 import axios from "axios";
 import {Link, useNavigate} from "react-router-dom";
 import './OrderHistory.css';
+import PaginationComponent from "../../../component/pagination/PaginationComponent";
 
 const OrdersHistory = () => {
     const navigate = useNavigate();
+    const [totalNum, setTotalNum] = useState(1);
     const [orderList, setOrderList] = useState(null);
 
     useEffect(() => {
@@ -17,6 +19,7 @@ const OrdersHistory = () => {
                     const response = await axios.get(`/api/ordering/orders`);
                     console.log(response.data['results']);
                     setOrderList(response.data['results']);
+                    setTotalNum(response.data['count']);
                 }
             } catch (error) {
                 console.log(error);
@@ -24,16 +27,28 @@ const OrdersHistory = () => {
         };
 
         fetchData();
-        console.log("aaa");
-        console.log(orderList);
     }, []);
+
+    const handleChangePage = async (param) => {
+        axios.get(`/api/ordering/orders?${param}`).then(res => {
+            console.log(res.data);
+            setOrderList(res.data['results']);
+        }).catch(error => {
+            console.log(error);
+        });
+    }
 
     return (
         <div>
-            {orderList && orderList.map(order => (
+            {orderList && orderList.length > 0 && orderList.map(order => (
                 // temp history list, please implement pagination component
                 <p key={order.id}><Link to={`/order-detail/${order.id}`}>Order ID: {order.id}</Link></p>
             ))}
+            <PaginationComponent
+                data={totalNum}
+                pageSize={20}
+                onPageChange={handleChangePage}
+            />
         </div>
     );
 };

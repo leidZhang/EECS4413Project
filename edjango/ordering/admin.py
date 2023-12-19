@@ -4,6 +4,19 @@ from django.contrib import admin
 from ordering.models import Order, OrderItem
 
 
+class OrderItemAdmin(admin.ModelAdmin):
+    list_display = ['order_date', 'order_id', 'inventory', 'quantity']
+
+    def order_date(self, obj):
+        return obj.order.date
+
+    def order_id(self, obj):
+        return obj.order.id
+
+    order_date.short_description = 'Order Date'
+    order_id.short_description = 'Order ID'
+
+
 class OrderItemInline(admin.TabularInline):
     model = OrderItem
     extra = 0  # no extra empty rows
@@ -25,3 +38,4 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Order, OrderAdmin)
+admin.site.register(OrderItem, OrderItemAdmin)

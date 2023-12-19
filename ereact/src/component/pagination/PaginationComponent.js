@@ -6,7 +6,7 @@ const PaginationComponent = ({ data, pageSize, onPageChange }) => {
     const location = useLocation();
     let allParams = location.search;
     const maxPageNumbers = 5;
-    const totalItems = data ? data.length : 0;
+    const totalItems = data ? data : 0;
     const totalPages = Math.ceil(totalItems / pageSize);
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -30,19 +30,20 @@ const PaginationComponent = ({ data, pageSize, onPageChange }) => {
     }
 
     const handlePageChange = (pageNum) => {
-        if (pageNum < 1 || pageNum > totalPages) return;
+        if (pageNum >= 1 && pageNum <= totalPages) {
+            console.log(pageNum);
+            setCurrentPage(pageNum);
+            handlePaginationChange();
 
-        setCurrentPage(pageNum);
-        handlePaginationChange();
+            const pageRegex = /&page=\d+/;
+            if (pageRegex.test(location.search)) {
+                allParams = location.search.replace(pageRegex, `&page=${pageNum}`);
+            } else {
+                allParams = location.search + `&page=${pageNum}`;
+            }
 
-        const pageRegex = /&page=\d+/;
-        if (pageRegex.test(location.search)) {
-            allParams = location.search.replace(pageRegex, `&page=${pageNum}`);
-        } else {
-            allParams = location.search + `&page=${pageNum}`;
+            onPageChange(allParams.substring(1));
         }
-
-        onPageChange(allParams.substring(1));
     }
 
     return (
