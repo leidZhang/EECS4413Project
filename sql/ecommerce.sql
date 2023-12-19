@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 18/12/2023 18:59:38
+ Date: 18/12/2023 21:58:15
 */
 
 SET NAMES utf8mb4;
@@ -47,7 +47,7 @@ CREATE TABLE `auth_group_permissions`  (
   INDEX `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm`(`permission_id` ASC) USING BTREE,
   CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 46 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of auth_group_permissions
@@ -75,6 +75,7 @@ INSERT INTO `auth_group_permissions` VALUES (18, 2, 51);
 INSERT INTO `auth_group_permissions` VALUES (19, 2, 52);
 INSERT INTO `auth_group_permissions` VALUES (20, 2, 54);
 INSERT INTO `auth_group_permissions` VALUES (21, 2, 56);
+INSERT INTO `auth_group_permissions` VALUES (45, 2, 59);
 INSERT INTO `auth_group_permissions` VALUES (22, 2, 60);
 INSERT INTO `auth_group_permissions` VALUES (23, 2, 64);
 INSERT INTO `auth_group_permissions` VALUES (24, 2, 68);
@@ -226,7 +227,7 @@ CREATE TABLE `auth_user`  (
 -- ----------------------------
 -- Records of auth_user
 -- ----------------------------
-INSERT INTO `auth_user` VALUES (1, 'pbkdf2_sha256$600000$MWT40CKVcjg3ofjl2pAtTV$30W6WVAzYaSsAwM8kwnE00/cGBwLxIDiLGSyQUedicw=', '2023-12-18 23:38:07.209500', 1, 'admin', 'Ad', 'Min', 'admin@ecommerce.com', 1, 1, '2023-10-29 21:07:18.000000');
+INSERT INTO `auth_user` VALUES (1, 'pbkdf2_sha256$600000$MWT40CKVcjg3ofjl2pAtTV$30W6WVAzYaSsAwM8kwnE00/cGBwLxIDiLGSyQUedicw=', '2023-12-19 01:52:45.735410', 1, 'admin', 'Ad', 'Min', 'admin@ecommerce.com', 1, 1, '2023-10-29 21:07:18.000000');
 INSERT INTO `auth_user` VALUES (6, 'pbkdf2_sha256$600000$cYgyHCPyoGpEqt5T1SePwz$y4tNPrZO1n2IRvwifCIg9+kn97kL4aIwQbgLxC1VmTU=', NULL, 0, 'lima', '', '', '', 0, 1, '2023-10-29 22:25:18.000000');
 INSERT INTO `auth_user` VALUES (7, 'pbkdf2_sha256$600000$aypZmBtLLD1S07n7qS9GJe$SAXM1bWrS0c9wOMa5pfYQpzNM1/+XTifuT78QBVBq3c=', '2023-10-30 16:03:34.136379', 0, 'js288c', '', '', '', 0, 1, '2023-10-29 23:18:39.000000');
 INSERT INTO `auth_user` VALUES (8, 'pbkdf2_sha256$600000$L47iA561Zh3bzDjb2zflWy$dERNVp9Tz3TU6mBVmLI7Sue7LKQn0XHqMQw0G7XNrhY=', NULL, 0, 'cindy', '', '', '', 0, 1, '2023-10-30 04:34:02.379567');
@@ -247,7 +248,7 @@ INSERT INTO `auth_user` VALUES (25, 'pbkdf2_sha256$600000$uN91Wg0dB2h2sn3mQFWz8B
 INSERT INTO `auth_user` VALUES (26, 'pbkdf2_sha256$600000$RgrX7qQiTxFrpdCM428QWP$s67zoEHKaL8/i6uMD4TreSn0D26BT/zDVYC7qfpX3fU=', NULL, 0, 'admin2', '', '', '', 1, 1, '2023-12-18 21:53:36.000000');
 INSERT INTO `auth_user` VALUES (27, 'pbkdf2_sha256$600000$1VrExFFHafweerUGZPCqxM$YLatmSamYHq8ARdmw0mNs6pP5a+zDSLbApeMr6OLB84=', '2023-12-18 21:55:27.226290', 0, 'admin3', '', '', '', 1, 1, '2023-12-18 21:54:55.000000');
 INSERT INTO `auth_user` VALUES (28, 'pbkdf2_sha256$600000$q9P9JLU4u1v04jdseApl3f$N3nun6Uu1xxLk58HMqPgWTU3VcJoAyCcsLCFsaiDE3A=', '2023-12-18 23:16:25.000000', 0, 'Leek', 'Adfr', 'Ds', '', 0, 1, '2023-12-18 23:10:15.000000');
-INSERT INTO `auth_user` VALUES (29, 'pbkdf2_sha256$600000$kj3d4eIGzF4eV2jyb5RDu6$Lex38xYg7NiomqG6H/uUG+OKKFR4qCcML+SMddBA/5I=', '2023-12-18 23:38:46.833702', 0, 'admin4', '', '', '', 1, 1, '2023-12-18 23:38:31.000000');
+INSERT INTO `auth_user` VALUES (29, 'pbkdf2_sha256$600000$kj3d4eIGzF4eV2jyb5RDu6$Lex38xYg7NiomqG6H/uUG+OKKFR4qCcML+SMddBA/5I=', '2023-12-19 00:50:09.194683', 0, 'admin4', '', '', '', 1, 1, '2023-12-18 23:38:31.000000');
 
 -- ----------------------------
 -- Table structure for auth_user_groups
@@ -325,7 +326,7 @@ CREATE TABLE `authtoken_token`  (
 -- Records of authtoken_token
 -- ----------------------------
 INSERT INTO `authtoken_token` VALUES ('ad3a1a9f1ed58d9893b38a67e2e96f6ab3c7af11', '2023-11-13 05:52:07.362556', 10);
-INSERT INTO `authtoken_token` VALUES ('ad621a7cc436eca2d7ca71ef81ef0708ee689c27', '2023-12-18 23:10:16.767322', 28);
+INSERT INTO `authtoken_token` VALUES ('ae4ca4e1b2dd07331df911b4f2255d1a542a0638', '2023-12-19 01:52:45.614492', 1);
 
 -- ----------------------------
 -- Table structure for catalog_inventory
@@ -477,7 +478,7 @@ CREATE TABLE `django_admin_log`  (
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `django_admin_log_chk_1` CHECK (`action_flag` >= 0)
-) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 66 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of django_admin_log
@@ -545,6 +546,8 @@ INSERT INTO `django_admin_log` VALUES (60, '2023-12-18 23:36:37.910852', '28', '
 INSERT INTO `django_admin_log` VALUES (61, '2023-12-18 23:36:49.963830', '16', 'admin11', 2, '[{\"changed\": {\"fields\": [\"Username\"]}}]', 4, 1);
 INSERT INTO `django_admin_log` VALUES (62, '2023-12-18 23:38:31.379948', '29', 'admin4', 1, '[{\"added\": {}}]', 4, 1);
 INSERT INTO `django_admin_log` VALUES (63, '2023-12-18 23:38:37.579807', '29', 'admin4', 2, '[{\"changed\": {\"fields\": [\"Staff status\", \"Groups\"]}}]', 4, 1);
+INSERT INTO `django_admin_log` VALUES (64, '2023-12-19 00:02:03.890413', '28', 'Leek', 2, '[{\"changed\": {\"fields\": [\"First name\"]}}]', 12, 29);
+INSERT INTO `django_admin_log` VALUES (65, '2023-12-19 00:49:55.537804', '2', 'administrator', 2, '[{\"changed\": {\"fields\": [\"Permissions\"]}}]', 3, 1);
 
 -- ----------------------------
 -- Table structure for django_content_type
@@ -594,7 +597,7 @@ CREATE TABLE `django_migrations`  (
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 46 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of django_migrations
@@ -643,6 +646,7 @@ INSERT INTO `django_migrations` VALUES (41, 'identity', '0003_remove_customerinf
 INSERT INTO `django_migrations` VALUES (42, 'identity', '0004_alter_customerinfo_address_2', '2023-12-18 01:01:25.959035');
 INSERT INTO `django_migrations` VALUES (43, 'shopping_cart', '0002_alter_cart_total', '2023-12-18 01:01:26.169179');
 INSERT INTO `django_migrations` VALUES (44, 'ordering', '0002_alter_order_status', '2023-12-18 22:02:26.845814');
+INSERT INTO `django_migrations` VALUES (45, 'ordering', '0003_alter_orderitem_options_alter_order_status', '2023-12-19 02:57:53.133212');
 
 -- ----------------------------
 -- Table structure for django_session
@@ -663,7 +667,7 @@ INSERT INTO `django_session` VALUES ('4qgcyovx2r3rox4czscz7v2cla4jjzwx', '.eJxVj
 INSERT INTO `django_session` VALUES ('7kbt2bk2nknmyjag85cakahhn99e07r5', '.eJxVjEEOwiAQRe_C2pBC6VBduvcMZGZgpGogKe3KeHfbpAvd_vfef6uA65LD2tIcpqguyqjT70bIz1R2EB9Y7lVzLcs8kd4VfdCmbzWm1_Vw_w4ytrzVePYDgQxg2GLksUvSi2OyBg11CAnAO8vkI_eb2rMAS_JudERRHKnPF_7-OPE:1qxUCR:rJd59Ee2Cw8TJc_EDSNaKK6U-d5geX0RlaFP7zk4rL8', '2023-11-13 15:29:07.696748');
 INSERT INTO `django_session` VALUES ('7nlew0pqj9jvol1u1sskqmvoazbv68ru', '.eJxVjD0OwyAUg-_CXCF-HgE6ds8ZEDygpK1ACslU9e4NUoZ2sSx_tt_E-X0rbu9pdUskV8LJ5TcLHp-pDhAfvt4bxVa3dQl0VOhJO51bTK_b2f07KL6XsfZZMWvRCIHaGAYcWeJZCJVsiOCnSbLDMtBKQwZpEkcU-hCulTRAPl_Mjjbo:1qxD0V:4Z3AuRHumOYauBNaT_Y26f1VZaomOXImfDQfnq3g2xQ', '2023-11-12 21:07:39.652874');
 INSERT INTO `django_session` VALUES ('anyd7ant53rf5jdlcq8ewtesigocvtk7', '.eJxVjEEOwiAQRe_C2pBC6VBduvcMZGZgpGogKe3KeHfbpAvd_vfef6uA65LD2tIcpqguyqjT70bIz1R2EB9Y7lVzLcs8kd4VfdCmbzWm1_Vw_w4ytrzVePYDgQxg2GLksUvSi2OyBg11CAnAO8vkI_eb2rMAS_JudERRHKnPF_7-OPE:1r8jxr:vjLH2JrOCR1ZZWtKdx8-01bOzxr63SY2d5vgR2tSj4Q', '2023-12-14 16:32:35.498684');
-INSERT INTO `django_session` VALUES ('bn4fygh59czgj3gkw4g5jrqemjys0qk0', '.eJxVjDEOwjAMRe-SGUVVEhyHkZ0zVI7tkAJqpaadKu4OlTrA-t97fzM9rUvt16ZzP4i5GJfM6XfMxE8ddyIPGu-T5Wlc5iHbXbEHbfY2ib6uh_t3UKnVbw3cAXmHUQTEZyTU2IEKIXBMZ4kBHLF6lpIZQipSOkyIEJRi8GDeHx99OJI:1rFNCA:03b0F6c7gv-EEr7zbb2pWqonWUn5NzkaZXReWqMRAzs', '2024-01-01 23:38:46.880896');
+INSERT INTO `django_session` VALUES ('dubo8l7wb4do5m9ej0rpg0jq1h9cnci5', '.eJxVjEEOwiAQRe_C2pBC6VBduvcMZGZgpGogKe3KeHfbpAvd_vfef6uA65LD2tIcpqguyqjT70bIz1R2EB9Y7lVzLcs8kd4VfdCmbzWm1_Vw_w4ytrzVePYDgQxg2GLksUvSi2OyBg11CAnAO8vkI_eb2rMAS_JudERRHKnPF_7-OPE:1rFOut:-edu4ZspGoaW0MWSMjItNJnRA9XZTJ28XxVch1rGGzA', '2024-01-02 01:29:03.278264');
 INSERT INTO `django_session` VALUES ('gfxpzji35fhqxqhpe69akl24d5s6s6wk', '.eJxVjEEOwiAQRe_C2pBC6VBduvcMZGZgpGogKe3KeHfbpAvd_vfef6uA65LD2tIcpqguyqjT70bIz1R2EB9Y7lVzLcs8kd4VfdCmbzWm1_Vw_w4ytrzVePYDgQxg2GLksUvSi2OyBg11CAnAO8vkI_eb2rMAS_JudERRHKnPF_7-OPE:1qzOlZ:PhGt4YP0UT-tnt2FTNBc9RPYcKDTNwfLY-QE_zuzP0s', '2023-11-18 22:05:17.577668');
 INSERT INTO `django_session` VALUES ('gmyj5ak95qq1558m55nfg96vy0bcq71h', '.eJxVjEEOwiAQRe_C2pBC6VBduvcMZGZgpGogKe3KeHfbpAvd_vfef6uA65LD2tIcpqguyqjT70bIz1R2EB9Y7lVzLcs8kd4VfdCmbzWm1_Vw_w4ytrzVePYDgQxg2GLksUvSi2OyBg11CAnAO8vkI_eb2rMAS_JudERRHKnPF_7-OPE:1r3KlA:6DQ1uulptici9KOoaD8bu3Zrje1gCngyJ484zm8lzag', '2023-11-29 18:37:08.031665');
 INSERT INTO `django_session` VALUES ('qkhu7c38owwhma0pytcvvmp64ga67im4', '.eJxVjD0OwyAUg-_CXCF-HgE6ds8ZEDygpK1ACslU9e4NUoZ2sSx_tt_E-X0rbu9pdUskV8LJ5TcLHp-pDhAfvt4bxVa3dQl0VOhJO51bTK_b2f07KL6XsfZZMWvRCIHaGAYcWeJZCJVsiOCnSbLDMtBKQwZpEkcU-hCulTRAPl_Mjjbo:1qxF3Y:lDPdtOHdF2W8R-4PWjRw1CfX-N8ajBDeHNCqK2j4WiI', '2023-11-12 23:18:56.906549');
