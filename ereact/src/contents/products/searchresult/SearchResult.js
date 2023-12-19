@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import ProductCard from "../../../component/productCard/ProductCard";
 import axios from "axios";
 import './SearchResult.css';
 import {useLocation, useNavigate} from "react-router-dom";
@@ -14,6 +13,7 @@ const SearchResult = () => { // temp implementation for demonstrating ProductCar
     const location = useLocation();
     const navigate = useNavigate();
 
+    const [totalNum, setTotalNum] = useState(1);
     const [generalProductList, setGeneralProductList] = useState(null);
     const [productList, setProductList] = useState(null);
     const [selectedBrand, setSelectedBrand] = useState(new Set());
@@ -29,15 +29,16 @@ const SearchResult = () => { // temp implementation for demonstrating ProductCar
 
         axios.get(`api/data-access/products/all`).then(res => {
             setGeneralProductList(res.data);
+            setBrands(getBrands(res.data));
             console.log(res.data)
         }).catch(error => {
             console.log(error);
         })
 
         axios.get(`api/data-access/products${allParams}`).then(res => {
-            const data = res.data['results'];
-            setProductList(data);
-            setBrands(getBrands(data));
+            const data = res.data;
+            setProductList(data['results']);
+            setTotalNum(data['count']);
         }).catch(error => {
             console.error(error);
         });
@@ -107,6 +108,7 @@ const SearchResult = () => { // temp implementation for demonstrating ProductCar
     }
 
     const handlePageChange = (params) => {
+        console.log(params);
         navigate(`/search-result?${params}`);
     }
 
@@ -143,7 +145,7 @@ const SearchResult = () => { // temp implementation for demonstrating ProductCar
             </div>
             <ProductList
                 productList={productList}
-                generalProductList={generalProductList}
+                totalPageNum={totalNum}
                 pageSize={20}
                 onPageChange={handlePageChange}
             />

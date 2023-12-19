@@ -2,7 +2,7 @@ import React from "react";
 import ProductCard from "../../../../component/productCard/ProductCard";
 import PaginationComponent from "../../../../component/pagination/PaginationComponent";
 
-const ProductList = ({productList, generalProductList, pageSize, onPageChange}) => { // list by category
+const ProductList = ({productList, totalPageNum, pageSize, onPageChange}) => { // list by category
     return (
         <div className="result-container">
             <h2 className="result-title">Results</h2>
@@ -12,7 +12,7 @@ const ProductList = ({productList, generalProductList, pageSize, onPageChange}) 
                 ))}
             </div>
             <div className="pagination-container" id="search-pagination">
-                <PaginationComponent data={generalProductList} pageSize={pageSize} onPageChange={onPageChange}/>
+                <PaginationComponent data={totalPageNum} pageSize={pageSize} onPageChange={onPageChange}/>
             </div>
         </div>
     );
