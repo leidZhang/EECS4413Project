@@ -1,22 +1,27 @@
 export const sliderData =[
     {
-        image: "https://files.oaiusercontent.com/file-enDUwfy0cTEGKasUxRTLORv9?se=2023-12-18T05%3A34%3A20Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dd6d53b79-469c-4b63-8dbf-e52dfa028dba.webp&sig=Fjm6LLCkojoK2uJAJ2kE5hSViV0vrUE5hKao%2BuIM84g%3D",
+        image: "https://i.pinimg.com/736x/27/52/d7/2752d7e9b1de20834ebd12b61ff33569.jpg",
         heading: "Men's Collection",
         Des:"Shop Men Collection Now",
         title: '1',
+        link:`http://localhost:3000/search-result?category=test_category_1`,
     },
     {
-        image: "https://files.oaiusercontent.com/file-BAzDN7V4Ta3gUOqVVR7U4ha3?se=2023-12-18T05%3A35%3A29Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D96529c4f-2097-41c4-a552-74b1cde3debb.webp&sig=eL9raW3rIiiUQLv7XZ/M/iKE4vZwxy0XiavVDICs9oY%3D",
+        image: "https://www.gqmiddleeast.com/public/styles/full_img_sml/public/images/2021/03/09/NikeAirMaxGenome_1.jpg",
         heading: "Women's Collection",
         Des:"Shop Women Collection Now",
         title: '2',
+        link:`http://localhost:3000/search-result?category=test_category_2`,
     },
 
     {
-        image: "https://files.oaiusercontent.com/file-hgXsVXl8dyk8RMoLZSeHVzrb?se=2023-12-18T05%3A35%3A55Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D3c3c9b17-dfd1-40b8-8d7d-7a5d7cebf627.webp&sig=w26eTLfYnTHnccuOp1ojwfCnIF/9DAcaL/wSaTweetA%3D",
+        image: "https://cdn.sanity.io/images/pu5wtzfc/production/94b464f5d9c69c4e81d8a0c7bc11abbb9aa218a0-2000x1250.jpg",
         heading: "Kids Collection",
         Des:"Shop Kids Collection Now",
         title: '3',
+        link:`http://localhost:3000/search-result?category=test_category_3`,
+        
+
     },
 
 ];

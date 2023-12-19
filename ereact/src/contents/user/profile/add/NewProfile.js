@@ -217,7 +217,7 @@ const NewProfile = () => {
                 </Row>
                 <div className="button-container">
                     <Button
-                        className="form-button"
+                        className="form-button bg-dark"
                         id="address-button"
                         type="submit"
                     >
