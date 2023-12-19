@@ -2,6 +2,9 @@ import {useState, useEffect} from "react";
 import {AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai"
 import { sliderData } from "./Slider-data";
 import "./Slider.css"
+import axios from "axios";
+import {useNavigate, useParams} from "react-router-dom";
+
 
 const Slider = () => {
     const [currentSlide, setCurrentSlide] = useState(0) //current slide starts from 0
@@ -29,6 +32,7 @@ const Slider = () => {
     }, []);
 
 
+
     useEffect(() => {
         if(Scroll)
         {
@@ -36,9 +40,13 @@ const Slider = () => {
         }
         return()=>clearInterval(slideInterval);
     }, [currentSlide]);
-
-
-    return(
+    
+  //   const handleNavigate = (title) => {
+  //      navigate(`http://localhost:3000/search-result?category=${title}`);
+  //  }
+    
+    // 
+    return(        
         <div className="Slider">
             <AiOutlineArrowLeft className="arrow prev"onClick={prevSlide}/>
             <AiOutlineArrowRight className="arrow next" onClick={nextSlide}/>
@@ -52,7 +60,7 @@ const Slider = () => {
                                     <h2>{slide.heading}</h2>
                                     <p>{slide.Des}</p>
                                     <hr/>
-                                    <button className="button" onClick={'/search-result?category=${slide.title}'}>Shop Now</button>
+                                {/*<button className="button">Shop Now</button>*/}
                                 </div>
                             </>
                         )}
