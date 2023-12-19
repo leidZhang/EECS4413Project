@@ -6,7 +6,7 @@ export const sliderData =[
         title: '1',
     },
     {
-        image: "https://files.oaiusercontent.com/file-BAzDN7V4Ta3gUOqVVR7U4ha3?se=2023-12-18T05%3A35%3A29Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D96529c4f-2097-41c4-a552-74b1cde3debb.webp&sig=eL9raW3rIiiUQLv7XZ/M/iKE4vZwxy0XiavVDICs9oY%3D",
+        image: "https://files.oaiusercontent.com/file-BAzDN7V4Ta3gUOqVVR7U4ha3?se=2023-12-19T01%3A26%3A45Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3D96529c4f-2097-41c4-a552-74b1cde3debb.webp&sig=SpO8uL7ZUNYa8k%2BPNu/9mX3Mkolf6R9O%2B2H6evoo2MQ%3D",
         heading: "Women's Collection",
         Des:"Shop Women Collection Now",
         title: '2',
