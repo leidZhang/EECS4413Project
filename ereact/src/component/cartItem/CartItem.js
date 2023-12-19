@@ -7,19 +7,19 @@ import axios from "axios";
 const CartItem = ({ data, reRender }) => {
     const navigate = useNavigate();
     // data received from parent component
-    const {inventory, quantity} = data;
+    const {id, inventory, quantity} = data;
     const [qty, setQty] = useState(quantity);
 
     const handleUpdate = (event) => {
         // update the quantity
         event.preventDefault();
-
+        console.log(inventory);
         const cartItem = {
             inventory_id: inventory.id,
             quantity: qty,
         };
 
-        axios.put(`/api/shopping-cart/cart/items/${inventory.id}`, cartItem).then(res => {
+        axios.put(`/api/shopping-cart/cart/items/${id}`, cartItem).then(res => {
             console.log(res.data);
             reRender();
         }).catch(error => {
@@ -31,7 +31,7 @@ const CartItem = ({ data, reRender }) => {
         // delete the item
         event.preventDefault();
 
-        axios.delete(`/api/shopping-cart/cart/items/${inventory.id}`).then(res => {
+        axios.delete(`/api/shopping-cart/cart/items/${id}`).then(res => {
             console.log(res.data);
             reRender();
         }).catch(error => {

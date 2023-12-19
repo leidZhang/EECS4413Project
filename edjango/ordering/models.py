@@ -6,12 +6,19 @@ from identity.models import Customer
 
 
 class Order(models.Model):
+    STATUS_CHOICES = [
+        ('processing', 'Processing'),
+        ('shipped', 'Shipped'),
+        ('delivered', 'Delivered'),
+        ('canceled', 'Canceled'),
+    ]
+
     # basic info
     customer = models.ForeignKey(Customer, on_delete=models.DO_NOTHING)
     inventories = models.ManyToManyField(Inventory, through='OrderItem')
     total = models.DecimalField(max_digits=6, decimal_places=2, default=0.00)
     date = models.DateField(db_index=True)
-    status = models.CharField(max_length=255, default="processing")
+    status = models.CharField(max_length=255, choices=STATUS_CHOICES, default="processing")
     # address info
     first_name = models.CharField(max_length=255, default="")
     last_name = models.CharField(max_length=255, default="")

@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, UserManager
 from django.contrib.auth import get_user_model
 
 
@@ -17,7 +17,7 @@ class Administrator(get_user_model()):
     objects = AdministratorManager()
 
 
-class CustomerManager(models.Manager):
+class CustomerManager(UserManager):
     def get_queryset(self):
         customer_group = Group.objects.get(name='Customer')
         return super().get_queryset().filter(groups=customer_group)
