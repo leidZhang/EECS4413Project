@@ -14,7 +14,6 @@ const SearchResult = () => { // temp implementation for demonstrating ProductCar
     const navigate = useNavigate();
 
     const [totalNum, setTotalNum] = useState(1);
-    const [generalProductList, setGeneralProductList] = useState(null);
     const [productList, setProductList] = useState(null);
     const [selectedBrand, setSelectedBrand] = useState(new Set());
     const [brands, setBrands] = useState(null);
@@ -28,7 +27,6 @@ const SearchResult = () => { // temp implementation for demonstrating ProductCar
         setOrder("");
 
         axios.get(`api/data-access/products/all`).then(res => {
-            setGeneralProductList(res.data);
             setBrands(getBrands(res.data));
             console.log(res.data)
         }).catch(error => {
@@ -37,6 +35,7 @@ const SearchResult = () => { // temp implementation for demonstrating ProductCar
 
         axios.get(`api/data-access/products${allParams}`).then(res => {
             const data = res.data;
+
             setProductList(data['results']);
             setTotalNum(data['count']);
         }).catch(error => {
@@ -123,7 +122,7 @@ const SearchResult = () => { // temp implementation for demonstrating ProductCar
                         handleBrand={setSelectedBrand}
                     />
                     <GroupFilter
-                        productList={generalProductList}
+                        productList={productList}
                         selectedProduct={selectedProduct}
                         handleProduct={setSelectedProduct}
                         handleSelection={handleSelection}
