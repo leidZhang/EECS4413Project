@@ -6,7 +6,7 @@ This is the course project for EECS4413, is an e-commerce website utilizing Reac
 - Checkout: This module is responsible for processing the payment method, shipping address, and completing the submission and confirmation of orders.
 - Product Information Management: This module is responsible for storing and managing various data of products, such as names, prices, classifications, descriptions, images, inventory, etc., as well as providing search, filtering, sorting, and other functions for products.
 - Order Management: This module is responsible for tracking and processing the user's order status, such as processing, delivered, canceled, etc.
-# Installation 
+# Installation and Usage
 To install and run this project on your local machine, you need to have Python and Node.js on your computer, as well as the following packages: 
 - Django: `pip install django`
 - Django Rest Framework: `pip install djangorestframework`
