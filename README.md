@@ -42,7 +42,7 @@ Alternatively, you can create your own supperuser with the command `python manag
 cd ereact
 npm install
 ```
-2. Before the first time starting the Django backend, the following steps have to be done:
+2. Before the first time starting the Django backend, the following steps have to be done:<br>
 i. Create a new schema called ecommerce<br>
 ii. Go to edjango folder and migrate the model with `python manage.py makemigrations` and `python manage.py migrate`<br>
 iii. Import data from the `ecommerce.sql` in the sql folder<br>
