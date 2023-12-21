@@ -46,7 +46,7 @@ i. Create a new schema called ecommerce<br>
 ii. Go to edjango folder and migrate the model with `python manage.py makemigrations` and `python manage.py migrate`<br>
 iii. Import data from the `ecommerce.sql` in the sql folder<br>
 # API Endpoints: 
-Base URL: `http://localhost:8000`<br>
+<b>Base URL:</b> `http://localhost:8000`<br><br>
 Login: `/auth/token/login`<br>
 Logout: `/auth/token/logout`<br>
 Customer Register: `/auth/users/`<br>
