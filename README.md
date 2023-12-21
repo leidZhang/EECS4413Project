@@ -27,9 +27,9 @@ npm start
 cd edjango
 python manage.py runserver 
 ```
-4. Once the frontend and the backend are running, you can enjoy this project.
-front-end url: `http://localhost:3000/`
-back-end url: `http://localhost:8000/`
+4. Once the frontend and the backend are running, you can enjoy this project.<br>
+front-end url: `http://localhost:3000/`<br>
+back-end url: `http://localhost:8000/`<br>
 
 To use the django administration `http://localhost:8000/admin`, you need to log in with a username and password. You can use the following: <br>
 <b>Username:</b> admin <br>
