@@ -34,6 +34,7 @@ back-end url: `http://localhost:8000/`<br>
 To use the django administration `http://localhost:8000/admin`, you need to log in with a username and password. You can use the following: <br>
 <b>Username:</b> admin <br>
 <b>Password:</b> 000000 <br>
+Alternatively, you can create your own supperuser with the command `python manage.py createsupperuser`<br>
 
 <b>Note</b>: 
 1. Before the first time starting the React frontend, the follow command have to be run on the console to install the dependencies:
