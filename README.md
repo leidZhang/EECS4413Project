@@ -58,8 +58,8 @@ Product Detail: `/api/data-access/products/:id`<br>
 Brands: `/api/data-access/brands`<br>
 Category: `/api/data-access/categories`<br>
 Order History: `/api/ordering/orders`<br>
-Order Detail" `/api/ordering/ orders/:id`<br>
-Order Items: `/api/ordering/ orders/:id/items`<br>
+Order Detail" `/api/ordering/orders/:id`<br>
+Order Items: `/api/ordering/orders/:id/items`<br>
 Cart: `/api/shopping-cart/cart`<br>
 Cart Items: `/api/shopping-cart/cart/items`<br>
 Cart Item (Specific item): `/api/shopping-cart/cart/items/:id`<br>
