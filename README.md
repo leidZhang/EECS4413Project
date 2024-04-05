@@ -66,5 +66,18 @@ Cart Items: `/api/shopping-cart/cart/items`<br>
 Cart Item (Specific item): `/api/shopping-cart/cart/items/:id`<br>
 Inventory List： `/api/catalog/inventory`<br>
 Inventory (Specific inventory): `/api/catalog/inventory/:id`<br>
+## Project Preview
+### Login 
+<img src="/images/login.png" />
+
+### Cart 
+<img src="/images/login.png" />
+
+### Item List 
+<img src="/images/catalog items.png" />
+
+### Order Placement 
+<img src="/images/purchase.png" />
+
 ## License
 This project is licensed under the Apache-2.0 license - see the LICENSE file for details.
