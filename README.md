@@ -1,31 +1,32 @@
-# Introduction 
-This is the course project for EECS4413, is an e-commerce website utilizing React, Django and MySQL database. It provides several functions such as product display, shopping cart and order viewing. 
-# Features 
-- User management: This module is responsible for viewing, modifying, creating, deleting, and disabling users. 
+# Introduction
+This is the course project for EECS4413, is an e-commerce website utilizing React, Django and MySQL database. It provides several functions such as product display, shopping cart and order viewing.
+# Features
+- User management: This module is responsible for viewing, modifying, creating, deleting, and disabling users.
 - Cart: This module is responsible for processing the user's shopping cart content. Users can modify the quantity or delete the product on the cart page.
 - Checkout: This module is responsible for processing the payment method, shipping address, and completing the submission and confirmation of orders.
 - Product Information Management: This module is responsible for storing and managing various data of products, such as names, prices, classifications, descriptions, images, inventory, etc., as well as providing search, filtering, sorting, and other functions for products.
 - Order Management: This module is responsible for tracking and processing the user's order status, such as processing, delivered, canceled, etc.
 # Installation and Usage
-To install and run this project on your local machine, you need to have Python and Node.js on your computer, as well as the following packages: 
+To install and run this project on your local machine, you need to have Python and Node.js on your computer, as well as the following packages:
 - Django: `pip install django`
 - Django Rest Framework: `pip install djangorestframework`
-- Corsheader:  `pip install django-cors-header`
-- Djoser: `pip install django-filter`
+- Djoser:  `pip install djoser`
+- Django filter: `pip install django-filter`
+- Corsheader: `pip install django-cors-headers`
 - mysqlclient: `pip install mysqlclient`<br>
 
-Then, follow these steps: 
+Then, follow these steps:
 1. Clone this repository to your machine, you can use the following command:
 `git clone https://github.com/leidZhang/EECS4413Project.git`
 2. Go to ereact folder to start the frontend:
 ```
 cd ereact
-npm start 
+npm start
 ```
 3. Open another console, go to edjango folder to start the backend:
 ```
 cd edjango
-python manage.py runserver 
+python manage.py runserver
 ```
 4. Once the frontend and the backend are running, you can enjoy this project.<br>
 front-end url: `http://localhost:3000/`<br>
@@ -36,7 +37,7 @@ To use the django administration `http://localhost:8000/admin`, you need to log 
 <b>Password:</b> 000000 <br>
 Alternatively, you can create your own supperuser with the command `python manage.py createsupperuser`<br>
 
-<b>Note</b>: 
+<b>Note</b>:
 1. Before the first time starting the React frontend, the follow command have to be run on the console to install the dependencies:
 ```
 cd ereact
@@ -46,7 +47,7 @@ npm install
 i. Create a new schema called ecommerce<br>
 ii. Go to edjango folder and migrate the model with `python manage.py makemigrations` and `python manage.py migrate`<br>
 iii. Import data from the `ecommerce.sql` in the sql folder<br>
-# API Endpoints: 
+# API Endpoints:
 <b>Base URL:</b> `http://localhost:8000`<br><br>
 Login: `/auth/token/login`<br>
 Logout: `/auth/token/logout`<br>
